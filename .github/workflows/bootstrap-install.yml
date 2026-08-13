@@ -34,7 +34,7 @@ jobs:
           tar -xzf /tmp/radar_uaf.tar.gz -C /tmp/radar_uaf_unpack
           test -d /tmp/radar_uaf_unpack/Radar_UAF
 
-          rsync -a --delete-excluded \
+          rsync -a \
             --exclude='.git/' \
             --exclude='__pycache__/' \
             --exclude='.pytest_cache/' \
