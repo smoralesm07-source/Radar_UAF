@@ -1,0 +1,50 @@
+{
+  "version": "2025",
+  "source_title": "Informe Estadístico 2025",
+  "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
+  "publication_date": "2026-03-30",
+  "capture_method": "OFFICIAL_UAF_REPORT",
+  "notes": "Series transcritas desde gráficos y cifras del Informe Estadístico 2025 de la UAF. Los valores ROE de la serie 2021-2025 están expresados en miles, tal como aparecen en el gráfico oficial; para 2025 se agrega además la cifra exacta publicada en el texto.",
+  "series": [
+    {
+      "metric": "entidades_reportantes_total",
+      "category": "SUJETOS_OBLIGADOS",
+      "unit": "personas y entidades",
+      "values": {"2021": 8137, "2022": 8379, "2023": 8729, "2024": 9136, "2025": 9911}
+    },
+    {
+      "metric": "ros_recibidos",
+      "category": "INTELIGENCIA_FINANCIERA",
+      "unit": "reportes",
+      "values": {"2021": 9738, "2022": 11400, "2023": 12900, "2024": 17417, "2025": 21828}
+    },
+    {
+      "metric": "roe_recibidos_miles",
+      "category": "INTELIGENCIA_FINANCIERA",
+      "unit": "miles de reportes",
+      "values": {"2021": 2966, "2022": 2848, "2023": 2458, "2024": 1817, "2025": 1620}
+    },
+    {
+      "metric": "acciones_supervision",
+      "category": "SUPERVISION",
+      "unit": "acciones",
+      "values": {"2021": 233, "2022": 157, "2023": 159, "2024": 163, "2025": 172}
+    },
+    {
+      "metric": "procesos_sancionatorios_iniciados",
+      "category": "SANCIONES",
+      "unit": "procesos",
+      "values": {"2021": 0, "2022": 51, "2023": 117, "2024": 61, "2025": 0}
+    }
+  ],
+  "latest_metrics": [
+    {"metric": "sujetos_obligados_sector_privado", "category": "SUJETOS_OBLIGADOS", "value": 9403, "unit": "entidades", "period": "2025", "as_of_date": "2025-12-31"},
+    {"metric": "entidades_publicas_registradas", "category": "SUJETOS_OBLIGADOS", "value": 508, "unit": "entidades", "period": "2025", "as_of_date": "2025-12-31"},
+    {"metric": "roe_recibidos", "category": "INTELIGENCIA_FINANCIERA", "value": 1620219, "unit": "reportes", "period": "2025", "as_of_date": "2025-12-31"},
+    {"metric": "personas_informadas_en_ros", "category": "INTELIGENCIA_FINANCIERA", "value": 22348, "unit": "personas", "period": "2025", "as_of_date": "2025-12-31"},
+    {"metric": "ros_con_indicios_laft", "category": "INTELIGENCIA_FINANCIERA", "value": 1132, "unit": "reportes", "period": "2025", "as_of_date": "2025-12-31"},
+    {"metric": "procesos_sancionatorios_finalizados", "category": "SANCIONES", "value": 59, "unit": "procesos", "period": "2025", "as_of_date": "2025-12-31"},
+    {"metric": "multas_sancionatorias_uf", "category": "SANCIONES", "value": 1925, "unit": "UF", "period": "2025", "as_of_date": "2025-12-31"},
+    {"metric": "personas_capacitadas", "category": "CAPACITACION", "value": 2517, "unit": "personas", "period": "2025", "as_of_date": "2025-12-31"}
+  ]
+}
