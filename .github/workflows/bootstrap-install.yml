@@ -36,13 +36,13 @@ jobs:
 
           rsync -a \
             --exclude='.git/' \
+            --exclude='.github/workflows/' \
             --exclude='__pycache__/' \
             --exclude='.pytest_cache/' \
             /tmp/radar_uaf_unpack/Radar_UAF/ ./
 
           find . -type d \( -name '__pycache__' -o -name '.pytest_cache' \) -prune -exec rm -rf {} +
           rm -rf .bootstrap
-          rm -f .github/workflows/bootstrap-install.yml
 
           git config user.name "radar-uaf-installer"
           git config user.email "radar-uaf-installer@users.noreply.github.com"
