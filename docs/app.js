@@ -44,7 +44,9 @@
 
   function fmtNum(n) {
     if (n === null || n === undefined || n === "") return "—";
-    return Number(n).toLocaleString("es-CL", { maximumFractionDigits: 2 });
+    const numeric = Number(n);
+    if (!Number.isFinite(numeric)) return String(n);
+    return numeric.toLocaleString("es-CL", { maximumFractionDigits: 2 });
   }
 
   function fmtDate(value) {
