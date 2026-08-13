@@ -12,6 +12,7 @@ TABLES = [
     "documents",
     "events",
     "entities",
+    "entity_hub_v1",
     "sanctions",
     "statistics",
     "watch_items",
