@@ -3,4 +3,6 @@ beautifulsoup4>=4.12,<5
 lxml>=5.2,<7
 pandas>=2.2,<3
 pyarrow>=17,<20
+openpyxl>=3.1,<4
+pypdf>=5.0,<7
 pytest>=8.3,<9

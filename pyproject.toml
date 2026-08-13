@@ -1,6 +1,6 @@
 [project]
 name = "radar-uaf"
-version = "0.1.0"
+version = "0.2.0"
 description = "Radar OSINT de la Unidad de Analisis Financiero (UAF) de Chile, con enfoque AML/LA-FT"
 requires-python = ">=3.11"
 

@@ -14,7 +14,7 @@ DOCS_DIR = ROOT / "docs"
 CONFIG_DIR = ROOT / "config"
 
 DEFAULT_HEADERS = {
-    "User-Agent": "Radar-UAF/0.1 (+https://github.com/smoralesm07-source/Radar_UAF; OSINT publico AML/LA-FT)",
+    "User-Agent": "Radar-UAF/0.2 (+https://github.com/smoralesm07-source/Radar_UAF; OSINT publico AML/LA-FT)",
     "Accept-Language": "es-CL,es;q=0.9,en;q=0.6",
 }
 
@@ -45,4 +45,11 @@ def load_seed_facts() -> dict:
     path = CONFIG_DIR / "seed_facts.json"
     if not path.exists():
         return {"facts": []}
+    return load_json(path)
+
+
+def load_official_statistics() -> dict:
+    path = CONFIG_DIR / "official_statistics_2025.json"
+    if not path.exists():
+        return {"series": [], "latest_metrics": []}
     return load_json(path)

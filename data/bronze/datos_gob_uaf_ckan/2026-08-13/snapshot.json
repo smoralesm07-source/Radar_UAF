@@ -1,7 +1,7 @@
 {
   "source_id": "datos_gob_uaf_ckan",
   "source_url": "https://datos.gob.cl/api/3/action/package_search?fq=organization:unidad_de_analisis_financiero&rows=100",
-  "fetched_at": "2026-08-13T01:44:46+00:00",
+  "fetched_at": "2026-08-13T02:06:06+00:00",
   "status_code": 200,
   "dataset_count": 10,
   "datasets": [
