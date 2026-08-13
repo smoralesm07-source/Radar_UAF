@@ -34,9 +34,6 @@ class PageResult:
 
 
 class HTTPClient:
-    """Cliente HTTP conservador para fuentes UAF / datos.gob.cl, con reintentos ante
-    cortes transitorios y encabezados que identifican el proyecto como recolector OSINT."""
-
     def __init__(self, timeout: int = 35):
         self.session = requests.Session()
         self.session.headers.update(DEFAULT_HEADERS)
@@ -97,8 +94,6 @@ def collect_page(client: HTTPClient, source: Source) -> tuple[PageResult, str]:
 
 
 def discover_downloads(html: str, base_url: str) -> list[dict]:
-    """Descubre adjuntos publicados por la UAF preservando texto y contexto del bloque.
-    Esto permite seguir enlaces aunque el CMS cambie el nombre físico del archivo."""
     soup = BeautifulSoup(html or "", "lxml")
     downloads: list[dict] = []
     seen: set[str] = set()
@@ -158,9 +153,6 @@ def _registry_candidate(downloads: list[dict], sector: str) -> dict | None:
 
 
 def collect_registry_workbook(client: HTTPClient, source: Source, html: str, page_url: str, sector: str) -> dict:
-    """Descarga el XLSX vigente enlazado por la UAF y reconstruye el registro por RUT.
-    Conserva dos conteos: filas listadas y RUT únicos. El primero replica el universo publicado;
-    el segundo sirve para el futuro Entity Hub y permite detectar duplicidad por actividad."""
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     downloads = discover_downloads(html, page_url)
     candidate = _registry_candidate(downloads, sector)
@@ -235,13 +227,16 @@ def collect_registry_workbook(client: HTTPClient, source: Source, html: str, pag
             {"rut": r["rut"], "name": r["name"], "activity": " | ".join(sorted(r["activities"]))}
             for r in by_rut.values()
         ]
-        listed_count = max(sequence_numbers) if sequence_numbers else len(dedup_rows)
+        # listed_count replica el número de filas únicas publicadas en el archivo. RUT únicos se
+        # informa por separado porque una entidad puede aparecer vinculada a más de una actividad.
+        listed_count = len(dedup_rows)
         result.update(
             {
                 "listed_count": int(listed_count),
                 "unique_rut_count": len(rows),
                 "rows": rows[: source.max_items],
                 "sheet_names": book.sheet_names,
+                "sequence_max": max(sequence_numbers) if sequence_numbers else None,
                 "workbook_bytes": len(response.content),
                 "content_hash": sha256_text(response.content.hex()),
             }
@@ -256,9 +251,29 @@ def _year_from_text(text: str) -> int:
     return max(years) if years else 0
 
 
+def _report_year(item: dict) -> int:
+    """Prioriza el año que forma parte del nombre del archivo o del título del informe.
+    No usa el máximo del bloque HTML porque éste puede contener el año de publicación u otros
+    años mencionados por la página, que no corresponden al período estadístico del documento."""
+    for text in (item.get("url", ""), item.get("text", "")):
+        years = re.findall(r"(?:Informe[_\s-]*Estad(?:istico|ístico)[_\s-]*|_)(20\d{2})(?:\D|$)", text, flags=re.IGNORECASE)
+        if years:
+            return int(years[-1])
+        simple = re.findall(r"\b(20\d{2})\b", text)
+        if simple:
+            return int(simple[-1])
+    context = item.get("context", "")
+    title_match = re.search(r"Informe\s+Estad(?:ístico|istico)\s+(20\d{2})", context, flags=re.IGNORECASE)
+    return int(title_match.group(1)) if title_match else 0
+
+
+def _report_year_from_pdf_text(text: str) -> int:
+    head = normalize_ws(text or "")[:5000]
+    match = re.search(r"Informe\s+Estad(?:ístico|istico)(?:\s+UAF)?\s+(20\d{2})", head, flags=re.IGNORECASE)
+    return int(match.group(1)) if match else 0
+
+
 def collect_statistics_report(client: HTTPClient, source: Source, html: str, page_url: str) -> tuple[dict, str]:
-    """Descubre y descarga el Informe Estadístico anual más reciente publicado por la UAF.
-    Extrae el texto del PDF con pypdf para que extract.py materialice indicadores verificables."""
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     downloads = discover_downloads(html, page_url)
     pdfs = []
@@ -267,7 +282,7 @@ def collect_statistics_report(client: HTTPClient, source: Source, html: str, pag
             continue
         haystack = f"{item.get('context', '')} {item.get('url', '')}".lower()
         if "informe" in haystack and "estad" in haystack and "serie" not in haystack:
-            pdfs.append((_year_from_text(haystack), item))
+            pdfs.append((_report_year(item), item))
     result = {
         "source_id": source.id,
         "source_url": page_url,
@@ -286,10 +301,11 @@ def collect_statistics_report(client: HTTPClient, source: Source, html: str, pag
         reader = PdfReader(BytesIO(response.content))
         page_texts = [(page.extract_text() or "") for page in reader.pages]
         full_text = "\n".join(page_texts)
+        detected_year = year or _report_year_from_pdf_text(full_text)
         result.update(
             {
                 "report_url": response.url,
-                "report_year": year or _year_from_text(full_text),
+                "report_year": detected_year,
                 "page_count": len(reader.pages),
                 "content_hash": sha256_text(response.content.hex()),
                 "text_excerpt": normalize_ws(full_text)[:3000],
