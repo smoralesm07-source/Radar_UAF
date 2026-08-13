@@ -10,9 +10,12 @@
     "valid_rut_required": true,
     "unresolved_policy": "ENTITY_ID_NULL_CANDIDATE_ONLY",
     "role_is_identity_independent": true,
-    "current_status": "ADAPTER_PARTIAL",
+    "current_status": "ADAPTER_READY",
     "local_ids_preserved": true,
-    "identity_context": "official registry and governed SII reconciliation"
+    "identity_context": "official registry and governed SII reconciliation",
+    "adapter_module": "radar_uaf/interop.py",
+    "materialized_path": "data/silver/entity_hub_v1.jsonl",
+    "catalog_path": "docs/data/interop_catalog_v1.json"
   },
   "territory": {
     "region_key": "CL-REG-{CODIGO_REGION}",
@@ -40,6 +43,8 @@
     "required_metadata": ["score_name","score_value","score_version","score_scope"]
   },
   "exports": [
+    {"path":"data/silver/entity_hub_v1.jsonl","purpose":"canonical entity interoperability view"},
+    {"path":"docs/data/interop_catalog_v1.json","purpose":"machine-readable interoperability catalog"},
     {"path":"data/silver/","purpose":"normalized radar outputs"},
     {"path":"docs/","purpose":"published consumer outputs"}
   ],

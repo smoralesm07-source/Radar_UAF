@@ -1,0 +1,13 @@
+{
+  "interop_version": "1.0",
+  "radar_id": "RADAR_UAF",
+  "entity_hub_materialization": "data/silver/entity_hub_v1.jsonl",
+  "global_entity_key": "ENT-RUT-{RUT_NORMALIZADO}",
+  "unresolved_policy": "ENTITY_ID_NULL_CANDIDATE_ONLY",
+  "exports": [
+    {"dataset":"entity_hub_v1","path":"data/silver/entity_hub_v1.jsonl","grain":"SOURCE_ENTITY","primary_key":"source_entity_id"},
+    {"dataset":"entity_hub_v1_parquet","path":"data/gold/entity_hub_v1.parquet","grain":"SOURCE_ENTITY"},
+    {"dataset":"entities","path":"data/silver/entities.jsonl","grain":"RADAR_LOCAL_ENTITY"}
+  ],
+  "adapter_module": "radar_uaf/interop.py"
+}
