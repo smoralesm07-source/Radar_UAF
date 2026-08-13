@@ -23,6 +23,7 @@ from .extract import (
     parse_statistical_report,
     registry_result_to_records,
 )
+from .interop import materialize_entity_hub
 from .models import Document, Event, SourceRun, stable_id
 from .seed import load_official_statistics_into_silver, load_seed_into_silver
 from .storage import export_parquet, upsert_jsonl, write_snapshot
@@ -77,8 +78,6 @@ def run(source_filter: str | None = None, skip_network: bool = False) -> dict:
         "errors": 0,
     }
 
-    # Series oficiales 2021-2025: base determinista. La lectura en vivo del PDF reemplaza
-    # el mismo statistic_id cuando confirma el valor del último año.
     official_statistics = load_official_statistics_into_silver()
 
     if not skip_network:
@@ -241,7 +240,6 @@ def run(source_filter: str | None = None, skip_network: bool = False) -> dict:
     if runs:
         upsert_jsonl("source_runs", runs, "run_id")
 
-    # Las semillas se conservan como historia y evidencia auxiliar, nunca como encabezado vigente.
     seed_result = load_seed_into_silver()
 
     from .storage import read_jsonl, table_path
@@ -250,6 +248,7 @@ def run(source_filter: str | None = None, skip_network: bool = False) -> dict:
     if sanction_entities:
         upsert_jsonl("entities", sanction_entities, "entity_id")
 
+    interop_entity_hub = materialize_entity_hub()
     parquet = export_parquet()
     dashboard = build_dashboard()
 
@@ -258,6 +257,7 @@ def run(source_filter: str | None = None, skip_network: bool = False) -> dict:
         "totals": totals,
         "official_statistics": official_statistics,
         "seed": seed_result,
+        "interop_entity_hub": interop_entity_hub,
         "parquet": parquet,
         "dashboard_kpis": dashboard["kpis"],
     }
