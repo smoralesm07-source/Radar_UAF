@@ -1,0 +1,66 @@
+name: Radar UAF - recoleccion
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "radar_uaf/**"
+      - "config/**"
+      - "schemas/**"
+      - "tests/**"
+      - "requirements.txt"
+      - "pyproject.toml"
+      - "run.py"
+      - ".github/workflows/radar.yml"
+  schedule:
+    - cron: "23 9,21 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: radar-uaf-write-v1
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Dependencias
+        run: pip install -r requirements.txt
+      - name: Pruebas
+        run: pytest -q
+      - name: Ejecutar Radar UAF
+        env:
+          TZ: America/Santiago
+        run: python run.py
+      - name: Persistir cambios
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "radar-uaf-bot"
+          git config user.email "radar-uaf-bot@users.noreply.github.com"
+          git add data docs/data
+          if git diff --cached --quiet; then
+            echo "Sin cambios de datos"
+            exit 0
+          fi
+          git commit -m "radar: actualizacion automatica $(date -u +'%Y-%m-%dT%H:%MZ')"
+          git fetch origin main
+          if [ "$(git rev-parse HEAD^)" != "$(git rev-parse origin/main)" ] && [ "$(git rev-parse HEAD~1)" != "$(git rev-parse origin/main)" ]; then
+            echo "main cambió durante la corrida; regenerar en próxima ejecución"
+            exit 1
+          fi
+          git push origin HEAD:main
