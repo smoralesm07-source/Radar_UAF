@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Radar UAF · OSINT AML/LA-FT Chile</title>
+<link rel="stylesheet" href="styles.css">
+<meta name="theme-color" content="#1f5c99">
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">OSINT · AML / LA-FT · Chile <span class="version">v0.1</span></div>
+      <h1>Radar UAF</h1>
+      <p>Inteligencia estructurada sobre normativa, sanciones, sujetos obligados y estadísticas publicadas por la Unidad de Análisis Financiero de Chile.</p>
+    </div>
+    <div class="status" id="generated">Cargando datos…</div>
+  </div>
+  <div class="disclaimer" id="disclaimer"></div>
+</header>
+<main class="wrap">
+  <section class="panel">
+    <h3>Preguntas clave</h3>
+    <div id="questions" class="questions"></div>
+  </section>
+  <section id="kpis" class="kpis"></section>
+  <nav class="tabs" id="tabs">
+    <button class="active" data-tab="resumen">Resumen</button>
+    <button data-tab="normativa">Normativa</button>
+    <button data-tab="sanciones">Sanciones</button>
+    <button data-tab="estadisticas">Sujetos obligados &amp; estadísticas</button>
+    <button data-tab="fuentes">Fuentes</button>
+    <button data-tab="calidad">Calidad de datos</button>
+    <button data-tab="mejoras">Mejoras propuestas</button>
+  </nav>
+  <section id="view"></section>
+  <footer id="footer"></footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+{
+  "_comment": "Hechos publicos verificados manualmente via busqueda OSINT (no scraping directo) para poblar la primera version del radar mientras el colector en vivo corre por primera vez en GitHub Actions. Cada registro conserva su URL fuente y debe ser confirmado/actualizado por el pipeline en su proxima corrida en linea. No se incluyen datos personales de sancionados: solo cifras agregadas y hechos institucionales publicos.",
+  "captured_at": "2026-08-12",
+  "capture_method": "OSINT_WEB_SEARCH_SUMMARY",
+  "facts": [
+    {
+      "fact_id": "uaf-normativa-circular-62",
+      "category": "NORMATIVA",
+      "title": "Circular UAF N°62 sistematiza y actualiza instrucciones ALA/CFT",
+      "description": "La Circular UAF N°62 sistematiza y actualiza las instrucciones aplicables a personas naturales y juridicas de 55 actividades economicas obligadas. Su extracto se publico en el Diario Oficial el 03-04-2025 y entro en vigencia el 01-06-2025, derogando las circulares N° 6, 7, 11, 12, 16, 17, 18, 19, 34, 35, 40, 42, 46, 47, 49, 52, 53, 54, 55, 56, 57, 58, 59 y 60.",
+      "effective_date": "2025-06-01",
+      "publication_date": "2025-04-03",
+      "source_url": "https://www.uaf.cl/es-cl/normativa/circulares-uaf",
+      "confidence": 0.8
+    },
+    {
+      "fact_id": "uaf-sujetos-obligados-2025-s1",
+      "category": "SUJETOS_OBLIGADOS",
+      "title": "Registro de Entidades Reportantes - sector privado a junio 2025",
+      "description": "El Registro de Entidades Reportantes de la UAF contabilizaba 8.970 entidades del sector privado inscritas al 30-06-2025, 324 mas que en diciembre de 2024. La UAF publica esta lista semestralmente (enero y julio).",
+      "as_of_date": "2025-06-30",
+      "metric": "sujetos_obligados_sector_privado",
+      "value": 8970,
+      "delta_vs_previous": 324,
+      "source_url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-privado/inscritos-en-la-uaf",
+      "confidence": 0.75
+    },
+    {
+      "fact_id": "uaf-sanciones-2024-agregado",
+      "category": "SANCIONES",
+      "title": "Sanciones administrativas 2024 (cifra agregada)",
+      "description": "En 2024 la UAF aplico sanciones administrativas por un total de 2.915 UF a 63 entidades reguladas, segun cobertura de prensa especializada. Bancos y administradoras generales de fondos concentraron mas de la mitad de las multas del ano.",
+      "period": "2024",
+      "metric": "sanciones_agregadas_uf",
+      "value": 2915,
+      "entities_sanctioned": 63,
+      "source_url": "https://www.df.cl/mercados/banca-fintech/bancos-y-administradoras-generales-de-fondos-concentraron-mas-de-la",
+      "confidence": 0.55
+    },
+    {
+      "fact_id": "uaf-sanciones-marco-legal",
+      "category": "SANCIONES",
+      "title": "Marco de infracciones y sanciones (Ley 19.913)",
+      "description": "La Ley 19.913 y las Circulares UAF definen tres niveles de infraccion: leves (incumplimiento de instrucciones de circulares, sancion desde amonestacion hasta 800 UF), menos graves (incumplimientos de Reporte de Operaciones en Efectivo y de mantencion de registros, hasta 3.000 UF) y graves (incumplimiento de la obligacion de reportar o de enviar ROS, hasta 5.000 UF).",
+      "source_url": "https://www.uaf.cl/es-cl/normativa/nuestra-ley",
+      "confidence": 0.7
+    },
+    {
+      "fact_id": "uaf-informe-tipologias-x",
+      "category": "TIPOLOGIAS",
+      "title": "X Informe de Tipologias y Senales de Alerta de Lavado de Activos en Chile",
+      "description": "Publicado el 10-03-2025, cubre el periodo 2019-2023 y se basa en el analisis de 191 sentencias condenatorias definitivas de tribunales chilenos, identificando tendencias, senales de alerta, maniobras y esquemas de lavado de activos.",
+      "publication_date": "2025-03-10",
+      "period_covered": "2019/2023",
+      "source_evidence_base": "191 sentencias condenatorias definitivas",
+      "source_url": "https://www.uaf.cl/intituciones_publicas/informe.aspx",
+      "confidence": 0.6
+    },
+    {
+      "fact_id": "uaf-informes-inteligencia-financiera",
+      "category": "PROCESO_INTELIGENCIA",
+      "title": "Informes de Inteligencia Financiera remitidos al Ministerio Publico",
+      "description": "La UAF elabora Informes de Inteligencia Financiera a partir de ROS y otros insumos, remitidos al Ministerio Publico conforme al articulo 2 de la Ley 19.913. Todo el proceso ROS -> analisis -> Informe de Inteligencia es confidencial.",
+      "source_url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-privado/reporte-de-operaciones-sospechosas-ros",
+      "confidence": 0.6
+    },
+    {
+      "fact_id": "uaf-condenas-lavado-fiscalia",
+      "category": "RESULTADOS_JUDICIALES",
+      "title": "Sentencias condenatorias por lavado de activos",
+      "description": "Cobertura institucional referida a que el Ministerio Publico eleva a 105 el numero de sentencias condenatorias por lavado de activos, en el marco del trabajo conjunto con la UAF.",
+      "source_url": "https://www.uaf.cl/es-cl/noticia-detalle?id=441",
+      "confidence": 0.45
+    },
+    {
+      "fact_id": "uaf-datos-abiertos-organizacion",
+      "category": "DATOS_ABIERTOS",
+      "title": "Organizacion UAF en el Portal de Datos Abiertos (datos.gob.cl)",
+      "description": "La UAF publica en datos.gob.cl (portal CKAN) los datasets: Sujetos Obligados inscritos en la UAF, ROS enviadas al Ministerio Publico, ROS recibidas por la UAF, Penas de comiso por delitos de lavado de activos y Procesos judiciales por delito de lavado de activos terminados.",
+      "source_url": "https://datos.gob.cl/organization/unidad_de_analisis_financiero",
+      "confidence": 0.65
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "sources": [
+    {
+      "id": "uaf_normativa_ley",
+      "name": "Nuestra Ley (Ley 19.913)",
+      "url": "https://www.uaf.cl/es-cl/normativa/nuestra-ley",
+      "collector": "page_discovery",
+      "enabled": true,
+      "max_items": 60,
+      "priority": 1,
+      "notes": "Marco legal fundacional de la UAF. Base para detectar modificaciones legales."
+    },
+    {
+      "id": "uaf_circulares",
+      "name": "Circulares UAF",
+      "url": "https://www.uaf.cl/es-cl/normativa/circulares-uaf",
+      "collector": "normativa_index",
+      "enabled": true,
+      "max_items": 120,
+      "priority": 1,
+      "notes": "Listado de circulares vigentes/derogadas. La Circular N°62 (vigente desde 01-06-2025) sistematiza instrucciones para 55 actividades economicas obligadas."
+    },
+    {
+      "id": "uaf_sujetos_obligados",
+      "name": "Sujetos Obligados (portada)",
+      "url": "https://www.uaf.cl/es-cl/sujetos-obligados",
+      "collector": "page_discovery",
+      "enabled": true,
+      "max_items": 80,
+      "priority": 1,
+      "notes": "Landing con secciones sector publico/privado, tipos de reporte y registro."
+    },
+    {
+      "id": "uaf_sujetos_obligados_inscritos",
+      "name": "Inscritos en la UAF (Registro de Entidades Reportantes)",
+      "url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-privado/inscritos-en-la-uaf",
+      "collector": "registry_snapshot",
+      "enabled": true,
+      "max_items": 40,
+      "priority": 1,
+      "notes": "Publicacion semestral (enero/julio) del Registro de Entidades Reportantes. Referencia publica: 8.970 entidades del sector privado a junio-2025."
+    },
+    {
+      "id": "uaf_sujetos_obligados_quienes_reportan",
+      "name": "Quienes deben reportar",
+      "url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-privado/quienes-deben-reportar",
+      "collector": "page_discovery",
+      "enabled": true,
+      "max_items": 60,
+      "priority": 2,
+      "notes": "Detalle de las actividades economicas obligadas segun articulo 3 de la Ley 19.913."
+    },
+    {
+      "id": "uaf_ros",
+      "name": "Reporte de Operaciones Sospechosas (ROS)",
+      "url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-privado/reporte-de-operaciones-sospechosas-ros",
+      "collector": "page_discovery",
+      "enabled": true,
+      "max_items": 40,
+      "priority": 2,
+      "notes": "Instrucciones de envio de ROS; insumo central del proceso de inteligencia financiera."
+    },
+    {
+      "id": "uaf_roe",
+      "name": "Reporte de Operaciones en Efectivo (ROE)",
+      "url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-privado/reporte-de-operaciones-en-efectivo-roe",
+      "collector": "page_discovery",
+      "enabled": true,
+      "max_items": 40,
+      "priority": 2,
+      "notes": "Reportes de efectivo, insumo complementario a ROS para deteccion de LA/FT."
+    },
+    {
+      "id": "uaf_listas_onu",
+      "name": "Listas de Resoluciones ONU",
+      "url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-privado/listas-de-resoluciones-onu",
+      "collector": "sanctions_list",
+      "enabled": true,
+      "max_items": 40,
+      "priority": 1,
+      "notes": "Listas de sanciones financieras del Consejo de Seguridad de Naciones Unidas replicadas por la UAF. Clave para screening de personas/entidades PEP y financiamiento del terrorismo."
+    },
+    {
+      "id": "uaf_sector_publico_reportes",
+      "name": "Tipos de reporte - Sector Publico",
+      "url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-publico/tipos-de-reportes",
+      "collector": "page_discovery",
+      "enabled": true,
+      "max_items": 40,
+      "priority": 2,
+      "notes": "Obligaciones de reporte especificas de organismos publicos."
+    },
+    {
+      "id": "uaf_sanciones_legacy_entidades",
+      "name": "Sanciones ejecutoriadas (sitio legado)",
+      "url": "https://www.uaf.cl/entidades_reportantes/sanciones.aspx",
+      "collector": "sanciones_legacy",
+      "enabled": true,
+      "max_items": 400,
+      "priority": 1,
+      "notes": "Listado historico de resoluciones sancionatorias ejecutoriadas. El dominio migro a una nueva CMS (es-cl); esta ruta .aspx aun aparece indexada y debe confirmarse en cada corrida si redirige o continua sirviendo el listado."
+    },
+    {
+      "id": "uaf_sanciones_legacy_lavado",
+      "name": "Sanciones (seccion Lavado de Activos, sitio legado)",
+      "url": "https://www.uaf.cl/lavado/sanciones.aspx",
+      "collector": "sanciones_legacy",
+      "enabled": true,
+      "max_items": 400,
+      "priority": 2,
+      "notes": "Ruta legada alternativa para el mismo listado de sanciones; se mantiene como respaldo por si la ruta principal cambia de URL."
+    },
+    {
+      "id": "uaf_informe_tipologias_legacy",
+      "name": "Informe de tipologias (sitio legado, instituciones publicas)",
+      "url": "https://www.uaf.cl/intituciones_publicas/informe.aspx",
+      "collector": "page_discovery",
+      "enabled": true,
+      "max_items": 40,
+      "priority": 2,
+      "notes": "URL legada (con typo original 'intituciones') que aloja el Informe de Tipologias y Senales de Alerta de LA en Chile."
+    },
+    {
+      "id": "uaf_noticias",
+      "name": "Noticias UAF",
+      "url": "https://www.uaf.cl/es-cl/",
+      "collector": "news_index",
+      "enabled": true,
+      "max_items": 60,
+      "priority": 1,
+      "notes": "Portada institucional con destacados de noticias; se navega mediante enlaces noticia-detalle?id=NNN."
+    },
+    {
+      "id": "uaf_preguntas_frecuentes",
+      "name": "Preguntas frecuentes",
+      "url": "https://www.uaf.cl/es-cl/preguntas-frecuentes",
+      "collector": "page_discovery",
+      "enabled": true,
+      "max_items": 40,
+      "priority": 3,
+      "notes": "Contenido de referencia para glosario y definiciones LA/FT/FP."
+    },
+    {
+      "id": "uaf_search_fallback",
+      "name": "Buscador UAF (respaldo de descubrimiento)",
+      "url": "https://www.uaf.cl/es-cl/search?q=informe+de+tipologias",
+      "collector": "search_discovery",
+      "enabled": true,
+      "max_items": 40,
+      "priority": 3,
+      "notes": "Mecanismo de descubrimiento resiliente a reordenamientos del CMS institucional (patron usado tambien para localizar sanciones y circulares)."
+    },
+    {
+      "id": "datos_gob_uaf_ckan",
+      "name": "Portal de Datos Abiertos - Organizacion UAF (CKAN)",
+      "url": "https://datos.gob.cl/api/3/action/package_search?fq=organization:unidad_de_analisis_financiero&rows=100",
+      "collector": "ckan_datasets",
+      "enabled": true,
+      "max_items": 100,
+      "priority": 1,
+      "notes": "API CKAN estandar de datos.gob.cl. Incluye datasets: sujetos obligados inscritos, ROS enviadas al Ministerio Publico, ROS recibidos por la UAF, penas de comiso por LA y procesos judiciales por LA terminados. Fuente estructurada, preferible a scraping HTML cuando este disponible."
+    }
+  ]
+}

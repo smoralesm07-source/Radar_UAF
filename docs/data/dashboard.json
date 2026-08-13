@@ -1,0 +1,529 @@
+{
+  "version": "0.1.0",
+  "generated_at": "2026-08-12T21:36:41+00:00",
+  "disclaimer": "Radar UAF transforma informacion publicada por la Unidad de Analisis Financiero de Chile y por el Portal de Datos Abiertos en datos estructurados para priorizacion analitica AML/LA-FT. Una sancion, una cifra agregada o una coincidencia con una lista no acredita por si sola lavado de activos, financiamiento del terrorismo, dolo ni responsabilidad individual. Los hechos marcados como 'semilla OSINT' provienen de busqueda web verificada con fuente citada, no de scraping directo, y deben confirmarse en la proxima corrida en linea del colector antes de tratarse como definitivos.",
+  "kpis": {
+    "documents": 8,
+    "events": 8,
+    "entities": 0,
+    "sanctions": 0,
+    "sanctions_total_uf_known": 0,
+    "statistics": 2,
+    "open_watch_items": 0,
+    "seed_facts_pending_confirmation": 8,
+    "sources_configured": 16,
+    "sources_never_run": 16,
+    "quality_status": "OK"
+  },
+  "documents": [
+    {
+      "content_hash": "",
+      "document_date": "2025-06-30",
+      "document_id": "DOC-6a953d22bc2da17918aa",
+      "document_number": "",
+      "document_type": "SEED_FACT",
+      "raw_text_excerpt": "El Registro de Entidades Reportantes de la UAF contabilizaba 8.970 entidades del sector privado inscritas al 30-06-2025, 324 mas que en diciembre de 2024. La UAF publica esta lista semestralmente (enero y julio).",
+      "retrieved_at": "2026-08-12T21:36:41+00:00",
+      "source_module": "SUJETOS_OBLIGADOS",
+      "source_system": "UAF",
+      "source_url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-privado/inscritos-en-la-uaf",
+      "status": "SEED_PENDING_LIVE_CONFIRMATION",
+      "title": "Registro de Entidades Reportantes - sector privado a junio 2025"
+    },
+    {
+      "content_hash": "",
+      "document_date": "2025-04-03",
+      "document_id": "DOC-97f3b0b0e76b481d0ee5",
+      "document_number": "",
+      "document_type": "SEED_FACT",
+      "raw_text_excerpt": "La Circular UAF N°62 sistematiza y actualiza las instrucciones aplicables a personas naturales y juridicas de 55 actividades economicas obligadas. Su extracto se publico en el Diario Oficial el 03-04-2025 y entro en vigencia el 01-06-2025, derogando las circulares N° 6, 7, 11, 12, 16, 17, 18, 19, 34, 35, 40, 42, 46, 47, 49, 52, 53, 54, 55, 56, 57, 58, 59 y 60.",
+      "retrieved_at": "2026-08-12T21:36:41+00:00",
+      "source_module": "NORMATIVA",
+      "source_system": "UAF",
+      "source_url": "https://www.uaf.cl/es-cl/normativa/circulares-uaf",
+      "status": "SEED_PENDING_LIVE_CONFIRMATION",
+      "title": "Circular UAF N°62 sistematiza y actualiza instrucciones ALA/CFT"
+    },
+    {
+      "content_hash": "",
+      "document_date": "2025-03-10",
+      "document_id": "DOC-67d20af5231b6310c7d6",
+      "document_number": "",
+      "document_type": "SEED_FACT",
+      "raw_text_excerpt": "Publicado el 10-03-2025, cubre el periodo 2019-2023 y se basa en el analisis de 191 sentencias condenatorias definitivas de tribunales chilenos, identificando tendencias, senales de alerta, maniobras y esquemas de lavado de activos.",
+      "retrieved_at": "2026-08-12T21:36:41+00:00",
+      "source_module": "TIPOLOGIAS",
+      "source_system": "UAF",
+      "source_url": "https://www.uaf.cl/intituciones_publicas/informe.aspx",
+      "status": "SEED_PENDING_LIVE_CONFIRMATION",
+      "title": "X Informe de Tipologias y Senales de Alerta de Lavado de Activos en Chile"
+    },
+    {
+      "content_hash": "",
+      "document_date": "",
+      "document_id": "DOC-19fb2502a60c79b4a3ad",
+      "document_number": "",
+      "document_type": "SEED_FACT",
+      "raw_text_excerpt": "En 2024 la UAF aplico sanciones administrativas por un total de 2.915 UF a 63 entidades reguladas, segun cobertura de prensa especializada. Bancos y administradoras generales de fondos concentraron mas de la mitad de las multas del ano.",
+      "retrieved_at": "2026-08-12T21:36:41+00:00",
+      "source_module": "SANCIONES",
+      "source_system": "OSINT_TERCERO",
+      "source_url": "https://www.df.cl/mercados/banca-fintech/bancos-y-administradoras-generales-de-fondos-concentraron-mas-de-la",
+      "status": "SEED_PENDING_LIVE_CONFIRMATION",
+      "title": "Sanciones administrativas 2024 (cifra agregada)"
+    },
+    {
+      "content_hash": "",
+      "document_date": "",
+      "document_id": "DOC-2c31db86d9e8695c55ab",
+      "document_number": "",
+      "document_type": "SEED_FACT",
+      "raw_text_excerpt": "La UAF elabora Informes de Inteligencia Financiera a partir de ROS y otros insumos, remitidos al Ministerio Publico conforme al articulo 2 de la Ley 19.913. Todo el proceso ROS -> analisis -> Informe de Inteligencia es confidencial.",
+      "retrieved_at": "2026-08-12T21:36:41+00:00",
+      "source_module": "PROCESO_INTELIGENCIA",
+      "source_system": "UAF",
+      "source_url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-privado/reporte-de-operaciones-sospechosas-ros",
+      "status": "SEED_PENDING_LIVE_CONFIRMATION",
+      "title": "Informes de Inteligencia Financiera remitidos al Ministerio Publico"
+    },
+    {
+      "content_hash": "",
+      "document_date": "",
+      "document_id": "DOC-329e9246c513bd1eb8d6",
+      "document_number": "",
+      "document_type": "SEED_FACT",
+      "raw_text_excerpt": "La UAF publica en datos.gob.cl (portal CKAN) los datasets: Sujetos Obligados inscritos en la UAF, ROS enviadas al Ministerio Publico, ROS recibidas por la UAF, Penas de comiso por delitos de lavado de activos y Procesos judiciales por delito de lavado de activos terminados.",
+      "retrieved_at": "2026-08-12T21:36:41+00:00",
+      "source_module": "DATOS_ABIERTOS",
+      "source_system": "OSINT_TERCERO",
+      "source_url": "https://datos.gob.cl/organization/unidad_de_analisis_financiero",
+      "status": "SEED_PENDING_LIVE_CONFIRMATION",
+      "title": "Organizacion UAF en el Portal de Datos Abiertos (datos.gob.cl)"
+    },
+    {
+      "content_hash": "",
+      "document_date": "",
+      "document_id": "DOC-8238bcaa69f915d9340a",
+      "document_number": "",
+      "document_type": "SEED_FACT",
+      "raw_text_excerpt": "La Ley 19.913 y las Circulares UAF definen tres niveles de infraccion: leves (incumplimiento de instrucciones de circulares, sancion desde amonestacion hasta 800 UF), menos graves (incumplimientos de Reporte de Operaciones en Efectivo y de mantencion de registros, hasta 3.000 UF) y graves (incumplimiento de la obligacion de reportar o de enviar ROS, hasta 5.000 UF).",
+      "retrieved_at": "2026-08-12T21:36:41+00:00",
+      "source_module": "SANCIONES",
+      "source_system": "UAF",
+      "source_url": "https://www.uaf.cl/es-cl/normativa/nuestra-ley",
+      "status": "SEED_PENDING_LIVE_CONFIRMATION",
+      "title": "Marco de infracciones y sanciones (Ley 19.913)"
+    },
+    {
+      "content_hash": "",
+      "document_date": "",
+      "document_id": "DOC-c0702c2265bd03662d0f",
+      "document_number": "",
+      "document_type": "SEED_FACT",
+      "raw_text_excerpt": "Cobertura institucional referida a que el Ministerio Publico eleva a 105 el numero de sentencias condenatorias por lavado de activos, en el marco del trabajo conjunto con la UAF.",
+      "retrieved_at": "2026-08-12T21:36:41+00:00",
+      "source_module": "RESULTADOS_JUDICIALES",
+      "source_system": "UAF",
+      "source_url": "https://www.uaf.cl/es-cl/noticia-detalle?id=441",
+      "status": "SEED_PENDING_LIVE_CONFIRMATION",
+      "title": "Sentencias condenatorias por lavado de activos"
+    }
+  ],
+  "documents_by_type": [
+    {
+      "name": "SEED_FACT",
+      "count": 8
+    }
+  ],
+  "events": [
+    {
+      "document_id": "DOC-6a953d22bc2da17918aa",
+      "entity_name": "",
+      "event_date": "2025-06-30",
+      "event_id": "EVT-6a953d22bc2da17918aa",
+      "event_type": "SEED_FACT_CAPTURADO",
+      "retrieved_at": "2026-08-12T21:36:41+00:00",
+      "source_module": "SUJETOS_OBLIGADOS",
+      "source_url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-privado/inscritos-en-la-uaf",
+      "status": "SEED",
+      "title": "Registro de Entidades Reportantes - sector privado a junio 2025"
+    },
+    {
+      "document_id": "DOC-97f3b0b0e76b481d0ee5",
+      "entity_name": "",
+      "event_date": "2025-04-03",
+      "event_id": "EVT-97f3b0b0e76b481d0ee5",
+      "event_type": "SEED_FACT_CAPTURADO",
+      "retrieved_at": "2026-08-12T21:36:41+00:00",
+      "source_module": "NORMATIVA",
+      "source_url": "https://www.uaf.cl/es-cl/normativa/circulares-uaf",
+      "status": "SEED",
+      "title": "Circular UAF N°62 sistematiza y actualiza instrucciones ALA/CFT"
+    },
+    {
+      "document_id": "DOC-67d20af5231b6310c7d6",
+      "entity_name": "",
+      "event_date": "2025-03-10",
+      "event_id": "EVT-67d20af5231b6310c7d6",
+      "event_type": "SEED_FACT_CAPTURADO",
+      "retrieved_at": "2026-08-12T21:36:41+00:00",
+      "source_module": "TIPOLOGIAS",
+      "source_url": "https://www.uaf.cl/intituciones_publicas/informe.aspx",
+      "status": "SEED",
+      "title": "X Informe de Tipologias y Senales de Alerta de Lavado de Activos en Chile"
+    },
+    {
+      "document_id": "DOC-19fb2502a60c79b4a3ad",
+      "entity_name": "",
+      "event_date": "",
+      "event_id": "EVT-19fb2502a60c79b4a3ad",
+      "event_type": "SEED_FACT_CAPTURADO",
+      "retrieved_at": "2026-08-12T21:36:41+00:00",
+      "source_module": "SANCIONES",
+      "source_url": "https://www.df.cl/mercados/banca-fintech/bancos-y-administradoras-generales-de-fondos-concentraron-mas-de-la",
+      "status": "SEED",
+      "title": "Sanciones administrativas 2024 (cifra agregada)"
+    },
+    {
+      "document_id": "DOC-2c31db86d9e8695c55ab",
+      "entity_name": "",
+      "event_date": "",
+      "event_id": "EVT-2c31db86d9e8695c55ab",
+      "event_type": "SEED_FACT_CAPTURADO",
+      "retrieved_at": "2026-08-12T21:36:41+00:00",
+      "source_module": "PROCESO_INTELIGENCIA",
+      "source_url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-privado/reporte-de-operaciones-sospechosas-ros",
+      "status": "SEED",
+      "title": "Informes de Inteligencia Financiera remitidos al Ministerio Publico"
+    },
+    {
+      "document_id": "DOC-329e9246c513bd1eb8d6",
+      "entity_name": "",
+      "event_date": "",
+      "event_id": "EVT-329e9246c513bd1eb8d6",
+      "event_type": "SEED_FACT_CAPTURADO",
+      "retrieved_at": "2026-08-12T21:36:41+00:00",
+      "source_module": "DATOS_ABIERTOS",
+      "source_url": "https://datos.gob.cl/organization/unidad_de_analisis_financiero",
+      "status": "SEED",
+      "title": "Organizacion UAF en el Portal de Datos Abiertos (datos.gob.cl)"
+    },
+    {
+      "document_id": "DOC-8238bcaa69f915d9340a",
+      "entity_name": "",
+      "event_date": "",
+      "event_id": "EVT-8238bcaa69f915d9340a",
+      "event_type": "SEED_FACT_CAPTURADO",
+      "retrieved_at": "2026-08-12T21:36:41+00:00",
+      "source_module": "SANCIONES",
+      "source_url": "https://www.uaf.cl/es-cl/normativa/nuestra-ley",
+      "status": "SEED",
+      "title": "Marco de infracciones y sanciones (Ley 19.913)"
+    },
+    {
+      "document_id": "DOC-c0702c2265bd03662d0f",
+      "entity_name": "",
+      "event_date": "",
+      "event_id": "EVT-c0702c2265bd03662d0f",
+      "event_type": "SEED_FACT_CAPTURADO",
+      "retrieved_at": "2026-08-12T21:36:41+00:00",
+      "source_module": "RESULTADOS_JUDICIALES",
+      "source_url": "https://www.uaf.cl/es-cl/noticia-detalle?id=441",
+      "status": "SEED",
+      "title": "Sentencias condenatorias por lavado de activos"
+    }
+  ],
+  "entities": [],
+  "sanctions": [],
+  "statistics": [
+    {
+      "as_of_date": "",
+      "capture_method": "SEED_OSINT_SUMMARY",
+      "category": "SANCIONES",
+      "confidence": 0.55,
+      "metric": "sanciones_agregadas_uf",
+      "period": "2024",
+      "retrieved_at": "2026-08-12T21:36:41+00:00",
+      "source_url": "https://www.df.cl/mercados/banca-fintech/bancos-y-administradoras-generales-de-fondos-concentraron-mas-de-la",
+      "statistic_id": "STAT-19fb2502a60c79b4a3ad",
+      "unit": "",
+      "value": 2915.0
+    },
+    {
+      "as_of_date": "2025-06-30",
+      "capture_method": "SEED_OSINT_SUMMARY",
+      "category": "SUJETOS_OBLIGADOS",
+      "confidence": 0.75,
+      "metric": "sujetos_obligados_sector_privado",
+      "period": "",
+      "retrieved_at": "2026-08-12T21:36:41+00:00",
+      "source_url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-privado/inscritos-en-la-uaf",
+      "statistic_id": "STAT-6a953d22bc2da17918aa",
+      "unit": "",
+      "value": 8970.0
+    }
+  ],
+  "watch_items": [],
+  "source_runs": [
+    {
+      "content_hash": "",
+      "error": "",
+      "finished_at": "2026-08-12T21:36:41+00:00",
+      "http_status": null,
+      "items_found": 0,
+      "run_id": "RUN-b3cce0bd883501e29a9a",
+      "source_id": "ALL",
+      "source_name": "Todas las fuentes",
+      "source_url": "",
+      "started_at": "2026-08-12T21:36:41+00:00",
+      "status": "SKIPPED_NO_NETWORK"
+    }
+  ],
+  "coverage": {
+    "generated_at": "2026-08-12T21:36:41+00:00",
+    "warning": "La cobertura depende de que las rutas configuradas sigan vigentes en el sitio de la UAF; varias fuentes usan URLs legadas (.aspx) que deben reconfirmarse periodicamente.",
+    "documents": {
+      "count": 8,
+      "oldest_date": "2025-03-10",
+      "newest_date": "2025-06-30",
+      "by_module": [
+        {
+          "name": "SANCIONES",
+          "count": 2
+        },
+        {
+          "name": "PROCESO_INTELIGENCIA",
+          "count": 1
+        },
+        {
+          "name": "DATOS_ABIERTOS",
+          "count": 1
+        },
+        {
+          "name": "TIPOLOGIAS",
+          "count": 1
+        },
+        {
+          "name": "SUJETOS_OBLIGADOS",
+          "count": 1
+        },
+        {
+          "name": "NORMATIVA",
+          "count": 1
+        },
+        {
+          "name": "RESULTADOS_JUDICIALES",
+          "count": 1
+        }
+      ],
+      "by_type": [
+        {
+          "name": "SEED_FACT",
+          "count": 8
+        }
+      ]
+    },
+    "sanctions": {
+      "count": 0,
+      "with_amount": 0
+    },
+    "statistics": {
+      "count": 2,
+      "by_capture_method": [
+        {
+          "name": "SEED_OSINT_SUMMARY",
+          "count": 2
+        }
+      ]
+    },
+    "sources": {
+      "configured": 16,
+      "with_at_least_one_run": 0,
+      "never_run": [
+        "datos_gob_uaf_ckan",
+        "uaf_circulares",
+        "uaf_informe_tipologias_legacy",
+        "uaf_listas_onu",
+        "uaf_normativa_ley",
+        "uaf_noticias",
+        "uaf_preguntas_frecuentes",
+        "uaf_roe",
+        "uaf_ros",
+        "uaf_sanciones_legacy_entidades",
+        "uaf_sanciones_legacy_lavado",
+        "uaf_search_fallback",
+        "uaf_sector_publico_reportes",
+        "uaf_sujetos_obligados",
+        "uaf_sujetos_obligados_inscritos",
+        "uaf_sujetos_obligados_quienes_reportan"
+      ],
+      "latest_run_by_source": {
+        "ALL": {
+          "status": "SKIPPED_NO_NETWORK",
+          "finished_at": "2026-08-12T21:36:41+00:00",
+          "error": "",
+          "items_found": 0
+        }
+      }
+    }
+  },
+  "quality": {
+    "generated_at": "2026-08-12T21:36:41Z",
+    "checks": [
+      {
+        "id": "duplicate_entity_names",
+        "label": "Entidades con el mismo nombre normalizado",
+        "severity": "OK",
+        "count": 0,
+        "detail": []
+      },
+      {
+        "id": "documents_missing_date",
+        "label": "Documentos sin fecha reconocida",
+        "severity": "LOW",
+        "count": 5
+      },
+      {
+        "id": "documents_missing_url",
+        "label": "Documentos sin URL fuente",
+        "severity": "OK",
+        "count": 0
+      },
+      {
+        "id": "sanctions_missing_amount",
+        "label": "Sanciones sin monto UF identificado",
+        "severity": "OK",
+        "count": 0
+      },
+      {
+        "id": "stale_seed_facts",
+        "label": "Hechos semilla sin confirmar en vivo por mas de 45 dias",
+        "severity": "OK",
+        "count": 0,
+        "detail": []
+      },
+      {
+        "id": "unknown_normativa_status",
+        "label": "Normativa con estado de vigencia desconocido",
+        "severity": "OK",
+        "count": 0
+      }
+    ],
+    "capture_method_mix": [
+      {
+        "name": "SEED_OSINT_SUMMARY",
+        "count": 2
+      }
+    ],
+    "document_status_mix": [
+      {
+        "name": "SEED_PENDING_LIVE_CONFIRMATION",
+        "count": 8
+      }
+    ],
+    "open_watch_items": 0,
+    "overall_status": "OK"
+  },
+  "improvement_backlog": [
+    {
+      "id": "confirm-legacy-sanciones-path",
+      "area": "Cobertura",
+      "priority": "ALTA",
+      "title": "Confirmar si las rutas .aspx de sanciones siguen sirviendo el listado completo",
+      "detail": "El sitio migro a una CMS bajo /es-cl/, pero las rutas legadas /entidades_reportantes/sanciones.aspx y /lavado/sanciones.aspx siguen indexadas. Es necesario validar en la primera corrida en GitHub Actions si responden 200, si redirigen, o si el listado historico completo ahora vive en una ruta /es-cl/ aun no identificada, y ajustar config/sources.json en consecuencia."
+    },
+    {
+      "id": "individual-sanction-records",
+      "area": "Extraccion",
+      "priority": "ALTA",
+      "title": "Extraer resoluciones sancionatorias individuales, no solo cifras agregadas",
+      "detail": "Los hechos semilla actuales solo incluyen totales anuales (2.915 UF / 63 entidades en 2024) tomados de cobertura de prensa. El colector en vivo debe parsear la tabla oficial fila por fila (numero de resolucion, RUT, fecha, monto UF, articulo infringido) para permitir analisis de recurrencia por entidad."
+    },
+    {
+      "id": "ckan-time-series",
+      "area": "Datos abiertos",
+      "priority": "ALTA",
+      "title": "Convertir los datasets CKAN de datos.gob.cl en series temporales reales",
+      "detail": "datos.gob.cl publica ROS enviadas al Ministerio Publico, ROS recibidas, penas de comiso y procesos judiciales por LA. Hoy solo se registra metadata del dataset (recursos, fecha de modificacion); falta descargar los recursos CSV/XLSX y modelarlos como observaciones anuales/mensuales en la tabla statistics."
+    },
+    {
+      "id": "entity-hub-crosslink",
+      "area": "Arquitectura",
+      "priority": "ALTA",
+      "title": "Definir el Entity Hub compartido con Radar-CGR, Radar-SII y Radar-Sectorial",
+      "detail": "El modelo Entity de este repositorio ya replica la forma (entity_id, entity_type, name, normalized_name, rut) usada en Radar-CGR para facilitar un cruce futuro. Falta acordar un esquema de entity_id verdaderamente compartido (idealmente anclado en RUT normalizado) y un mecanismo de sincronizacion entre repositorios, por ejemplo un dataset comun publicado por cada radar y consumido por los demas."
+    },
+    {
+      "id": "onu-list-diffing",
+      "area": "Sanciones internacionales",
+      "priority": "MEDIA",
+      "title": "Versionar las Listas de Resoluciones ONU para detectar altas y bajas",
+      "detail": "La pagina de Listas de Resoluciones ONU cambia con cada actualizacion del Consejo de Seguridad. Se debe capturar snapshot completo, calcular diff contra la corrida anterior y generar WatchItem por cada persona/entidad agregada o retirada, en vez de solo registrar la pagina como documento."
+    },
+    {
+      "id": "rut-validation",
+      "area": "Calidad de datos",
+      "priority": "MEDIA",
+      "title": "Validar digito verificador de RUT antes de aceptar una entidad",
+      "detail": "parse_rut() hoy solo reconoce el patron NN.NNN.NNN-D por regex. Se recomienda anadir validacion de digito verificador (modulo 11) para reducir falsos positivos al extraer RUT de texto libre de noticias o resoluciones."
+    },
+    {
+      "id": "circular-diff-text",
+      "area": "Normativa",
+      "priority": "MEDIA",
+      "title": "Diferenciar contenido normativo, no solo numero y estado",
+      "detail": "Hoy una Circular se registra con numero, fecha y estado (vigente/derogada). Un analisis regulatorio mas util requeriria extraer las 55 actividades economicas obligadas mencionadas y marcar que circular fue derogada por cual, replicando la trazabilidad que la propia Circular N°62 declara sobre las circulares que reemplaza."
+    },
+    {
+      "id": "robots-and-rate-limit-audit",
+      "area": "Cumplimiento tecnico",
+      "priority": "MEDIA",
+      "title": "Auditar robots.txt y agregar throttling explicito por dominio",
+      "detail": "El HTTPClient reutiliza el patron de reintentos de Radar-CGR pero aun no valida robots.txt de uaf.cl ni de datos.gob.cl antes de la primera corrida real. Conviene automatizar esa verificacion en CI y registrar el resultado en source_runs."
+    },
+    {
+      "id": "ci-schema-validation",
+      "area": "Ingenieria de datos",
+      "priority": "BAJA",
+      "title": "Validar cada fila contra su JSON Schema en CI",
+      "detail": "Los esquemas en schemas/*.json existen mas como documentacion que como gate ejecutable. Anadir un test que valide una muestra de silver/*.jsonl contra su schema en cada corrida de pytest."
+    },
+    {
+      "id": "historical-backfill",
+      "area": "Cobertura",
+      "priority": "BAJA",
+      "title": "Backfill historico de Informes de Tipologias anteriores a la decima edicion",
+      "detail": "Solo se referencia la decima edicion (2019-2023). La UAF ha publicado ediciones previas; incorporarlas permitiria una serie temporal comparable de tipologias/senales de alerta ano contra ano, similar al enfoque de barrido historico que Radar-CGR aplica sobre auditorias."
+    }
+  ],
+  "question_catalog": [
+    {
+      "id": "sanciones",
+      "label": "Que entidades y montos concentran las sanciones UAF?"
+    },
+    {
+      "id": "normativa",
+      "label": "Que circulares estan vigentes y cuales fueron derogadas?"
+    },
+    {
+      "id": "sujetos_obligados",
+      "label": "Cuantos sujetos obligados hay inscritos y como evoluciona el registro?"
+    },
+    {
+      "id": "tipologias",
+      "label": "Que tipologias y senales de alerta identifica la UAF?"
+    },
+    {
+      "id": "datos_abiertos",
+      "label": "Que series estadisticas publica la UAF en datos.gob.cl?"
+    },
+    {
+      "id": "calidad",
+      "label": "Que tan consistentes y verificados estan los datos del radar?"
+    },
+    {
+      "id": "mejoras",
+      "label": "Que mejoras estan priorizadas para las proximas corridas?"
+    }
+  ]
+}
