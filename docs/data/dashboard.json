@@ -1,14 +1,14 @@
 {
   "version": "0.2.0",
-  "generated_at": "2026-08-13T02:02:35+00:00",
+  "generated_at": "2026-08-13T02:06:07+00:00",
   "disclaimer": "Radar UAF transforma información publicada por la Unidad de Análisis Financiero de Chile y por el Portal de Datos Abiertos en datos estructurados para priorización analítica AML/LA-FT. Las cifras de registro vigente se obtienen del archivo oficial publicado por la UAF y se muestran con su fecha de corte. Las series anuales provienen del Informe Estadístico UAF. Una sanción, cifra agregada o coincidencia con una lista no acredita por sí sola lavado de activos, financiamiento del terrorismo, dolo ni responsabilidad individual.",
   "kpis": {
-    "registered_private_latest": 9403.0,
-    "registered_private_as_of": "2027-12-31",
-    "registered_public_latest": 508.0,
-    "registered_public_as_of": "2027-12-31",
-    "registered_total_latest": 9911.0,
-    "registered_total_as_of": "2027-12-31",
+    "registered_private_latest": 9782.0,
+    "registered_private_as_of": "2026-06-30",
+    "registered_public_latest": 512.0,
+    "registered_public_as_of": "2026-06-30",
+    "registered_total_latest": 10294.0,
+    "registered_total_as_of": "2026-06-30",
     "ros_latest": 21828.0,
     "ros_latest_as_of": "2025-12-31",
     "roe_latest": 1620219.0,
@@ -16,33 +16,19 @@
     "supervision_latest": 172.0,
     "supervision_latest_as_of": "2025-12-31",
     "fines_uf_latest": 1925.0,
-    "fines_uf_latest_as_of": "2027-12-31",
+    "fines_uf_latest_as_of": "2025-12-31",
     "documents": 30,
     "events": 11,
     "entities": 10294,
     "sanctions": 0,
     "sanctions_total_uf_known": 0,
-    "statistics": 53,
+    "statistics": 49,
     "open_watch_items": 0,
     "sources_configured": 18,
     "sources_never_run": 0,
     "quality_status": "REVIEW_RECOMMENDED"
   },
   "documents": [
-    {
-      "content_hash": "c94855a0ea63558530ac30467aadc35555c4ee695ae3d8c28485b256d06ee939",
-      "document_date": "2027-12-31",
-      "document_id": "DOC-0e3f1b2d71c7d8382d87",
-      "document_number": "",
-      "document_type": "INFORME_ESTADISTICO",
-      "raw_text_excerpt": "www.uaf.cl Informe Estadístico 2025 www.uaf.cl Índice 1. RESUMEN EJECUTIVO 2. ENTIDADES REPORTANTES 2.1. Entidades obligadas a informar a la UAF 3. INTELIGENCIA FINANCIERA 3.1. Reportes de Operaciones Sospechosas (ROS) 3.2. Reportes de Operaciones en Efectivo (ROE) 4. SUPERVISIÓN 4.1. Supervisión del cumplimiento de la normativa contra el LA/FT 4.2. Procesos sancionatorios 5. ACTIVIDADES DE DIFUSIÓN Y CAPACITACIÓN 6. COOPERACIÓN INTERINSTITUCIONAL 6.1. Cooperación nacional 6.2. Cooperación internacional 7. MARCO NORMATIVO 8. ANEXOS Anexo N°1: Actividades económicas con mayor participación en el registro de la UAF, por región Anexo N°2: Número de ROS remitidos a la UAF, por sector económico Anexo N°3: ROS detectados con indicios de LA/FT, por sector económico 04 06 07 10 11 15 17 18 20 22 25 26 30 33 35 36 37 40 www.uaf.cl Resumen Ejecutivo 0101 www.uaf.cl 1. Resumen ejecutivo La Unidad de Análisis Financiero (UAF) es un servicio público descentralizado, con personalidad jurídica y patrimonio propio, que se creó mediante la Ley N°19.913, del 18 de diciembre de 2003, y que se relaciona con la Presidencia de la República de Chile, a través del Ministerio de Hacienda. El objetivo de la UAF es prevenir e impedir la utilización del sistema financiero, y de otros sectores de la actividad económica, para la comisión de los delitos de lavado de activos y financiamiento del terrorismo (LA/FT), dadas las amenazas a la estabilidad, transparencia, seguridad y gobernabilidad del país que conllevan ambos ilícitos. Para cumplir su misión legal, la UAF realiza procesos de inteligencia financiera, emite normativa, fiscaliza su cumplimiento, impone sanciones administrativas, capacita y difunde información de carácter público, y desarrolla acciones de cooperación interinstitucional (nacional e internacional). Como representante de Chile ante el Grupo de Acción Financiera de Latinoamérica (Gafilat), la UAF coordina el Sistema Nacional Antilavado de Activos y contra el Financiamiento del Terrorismo y el de la Proliferación de Armas de Destrucción Masiva, cuyos pilares son la prevención, detección, persecución y sanción. En este contexto, la UAF elabora y publica anualmente un Informe Estadístico con las principales actividades que desarrolla para prevenir y detectar el LA/FT, a saber: Inteligencia financiera, supervisión y sanción administrativa, difusión de información de carácter público, capacitación y cooperación interinstitucional. Con una dotación de 77 personas a diciembre de 2025, 41 hombres y 36 mujeres, que se desglosan en 5 directivos, 58 profesionales, 10 técnicos y 4 administrativos, los resultados de la UAF del año 2025 son los siguientes: - El Registro de Entidades Reportantes de la UAF cerró el año con 9.911 personas naturales y jurídicas inscritas: 9.403 pertenecen a las 55 actividades económicas que supervisa la UAF, y 508 son instituciones públicas y municipalidades.. - La UAF recibió 21.828 Reportes de Operaciones Sospechosas (ROS) de los sujetos o",
-      "retrieved_at": "2026-08-13T02:02:29+00:00",
-      "source_module": "ESTADISTICAS",
-      "source_system": "UAF",
-      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
-      "status": "VIGENTE",
-      "title": "Informe Estadístico UAF 2027"
-    },
     {
       "content_hash": "d16be3fa3f9674ae9251ba76b1c178dd144ab21256a1f2de2f7c02f91889306a",
       "document_date": "2026-06-30",
@@ -63,13 +49,27 @@
       "document_id": "DOC-a83252b18f0e57700a08",
       "document_number": "",
       "document_type": "REGISTRO_UAF_XLSX",
-      "raw_text_excerpt": "Listado oficial UAF con 9784 filas publicadas y 9782 RUT únicos.",
-      "retrieved_at": "2026-08-13T02:02:22+00:00",
+      "raw_text_excerpt": "Listado oficial UAF con 9782 filas publicadas y 9782 RUT únicos.",
+      "retrieved_at": "2026-08-13T02:05:53+00:00",
       "source_module": "SUJETOS_OBLIGADOS",
       "source_system": "UAF",
       "source_url": "https://www.uaf.cl/media/documentos/Sujetos_Obligados_inscritos_en_la_UAF_al_31.07.2026.xlsx",
       "status": "VIGENTE",
       "title": "Registro de Entidades Reportantes UAF - sector privado - corte 2026-06-30"
+    },
+    {
+      "content_hash": "c94855a0ea63558530ac30467aadc35555c4ee695ae3d8c28485b256d06ee939",
+      "document_date": "2025-12-31",
+      "document_id": "DOC-cac28c11c09748c137bd",
+      "document_number": "",
+      "document_type": "INFORME_ESTADISTICO",
+      "raw_text_excerpt": "www.uaf.cl Informe Estadístico 2025 www.uaf.cl Índice 1. RESUMEN EJECUTIVO 2. ENTIDADES REPORTANTES 2.1. Entidades obligadas a informar a la UAF 3. INTELIGENCIA FINANCIERA 3.1. Reportes de Operaciones Sospechosas (ROS) 3.2. Reportes de Operaciones en Efectivo (ROE) 4. SUPERVISIÓN 4.1. Supervisión del cumplimiento de la normativa contra el LA/FT 4.2. Procesos sancionatorios 5. ACTIVIDADES DE DIFUSIÓN Y CAPACITACIÓN 6. COOPERACIÓN INTERINSTITUCIONAL 6.1. Cooperación nacional 6.2. Cooperación internacional 7. MARCO NORMATIVO 8. ANEXOS Anexo N°1: Actividades económicas con mayor participación en el registro de la UAF, por región Anexo N°2: Número de ROS remitidos a la UAF, por sector económico Anexo N°3: ROS detectados con indicios de LA/FT, por sector económico 04 06 07 10 11 15 17 18 20 22 25 26 30 33 35 36 37 40 www.uaf.cl Resumen Ejecutivo 0101 www.uaf.cl 1. Resumen ejecutivo La Unidad de Análisis Financiero (UAF) es un servicio público descentralizado, con personalidad jurídica y patrimonio propio, que se creó mediante la Ley N°19.913, del 18 de diciembre de 2003, y que se relaciona con la Presidencia de la República de Chile, a través del Ministerio de Hacienda. El objetivo de la UAF es prevenir e impedir la utilización del sistema financiero, y de otros sectores de la actividad económica, para la comisión de los delitos de lavado de activos y financiamiento del terrorismo (LA/FT), dadas las amenazas a la estabilidad, transparencia, seguridad y gobernabilidad del país que conllevan ambos ilícitos. Para cumplir su misión legal, la UAF realiza procesos de inteligencia financiera, emite normativa, fiscaliza su cumplimiento, impone sanciones administrativas, capacita y difunde información de carácter público, y desarrolla acciones de cooperación interinstitucional (nacional e internacional). Como representante de Chile ante el Grupo de Acción Financiera de Latinoamérica (Gafilat), la UAF coordina el Sistema Nacional Antilavado de Activos y contra el Financiamiento del Terrorismo y el de la Proliferación de Armas de Destrucción Masiva, cuyos pilares son la prevención, detección, persecución y sanción. En este contexto, la UAF elabora y publica anualmente un Informe Estadístico con las principales actividades que desarrolla para prevenir y detectar el LA/FT, a saber: Inteligencia financiera, supervisión y sanción administrativa, difusión de información de carácter público, capacitación y cooperación interinstitucional. Con una dotación de 77 personas a diciembre de 2025, 41 hombres y 36 mujeres, que se desglosan en 5 directivos, 58 profesionales, 10 técnicos y 4 administrativos, los resultados de la UAF del año 2025 son los siguientes: - El Registro de Entidades Reportantes de la UAF cerró el año con 9.911 personas naturales y jurídicas inscritas: 9.403 pertenecen a las 55 actividades económicas que supervisa la UAF, y 508 son instituciones públicas y municipalidades.. - La UAF recibió 21.828 Reportes de Operaciones Sospechosas (ROS) de los sujetos o",
+      "retrieved_at": "2026-08-13T02:06:00+00:00",
+      "source_module": "ESTADISTICAS",
+      "source_system": "UAF",
+      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
+      "status": "VIGENTE",
+      "title": "Informe Estadístico UAF 2025"
     },
     {
       "content_hash": "",
@@ -11611,58 +11611,6 @@
   "sanctions": [],
   "statistics": [
     {
-      "as_of_date": "2027-12-31",
-      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
-      "category": "SUJETOS_OBLIGADOS",
-      "confidence": 1.0,
-      "metric": "sujetos_obligados_sector_privado",
-      "period": "2027",
-      "retrieved_at": "2026-08-13T02:02:29+00:00",
-      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
-      "statistic_id": "STAT-67eaee6fdc3475b3ff0e",
-      "unit": "entidades",
-      "value": 9403.0
-    },
-    {
-      "as_of_date": "2027-12-31",
-      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
-      "category": "SUJETOS_OBLIGADOS",
-      "confidence": 1.0,
-      "metric": "entidades_publicas_registradas",
-      "period": "2027",
-      "retrieved_at": "2026-08-13T02:02:29+00:00",
-      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
-      "statistic_id": "STAT-9ceca24ffe654db3b1c4",
-      "unit": "entidades",
-      "value": 508.0
-    },
-    {
-      "as_of_date": "2027-12-31",
-      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
-      "category": "INTELIGENCIA_FINANCIERA",
-      "confidence": 1.0,
-      "metric": "ros_con_indicios_laft",
-      "period": "2027",
-      "retrieved_at": "2026-08-13T02:02:29+00:00",
-      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
-      "statistic_id": "STAT-cfb2e1c08a6c28b69e93",
-      "unit": "reportes",
-      "value": 1132.0
-    },
-    {
-      "as_of_date": "2027-12-31",
-      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
-      "category": "SANCIONES",
-      "confidence": 1.0,
-      "metric": "multas_sancionatorias_uf",
-      "period": "2027",
-      "retrieved_at": "2026-08-13T02:02:29+00:00",
-      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
-      "statistic_id": "STAT-e94770aa7f7297e54f08",
-      "unit": "UF",
-      "value": 1925.0
-    },
-    {
       "as_of_date": "2026-06-30",
       "capture_method": "UAF_REGISTRY_XLSX",
       "category": "SUJETOS_OBLIGADOS",
@@ -11708,20 +11656,20 @@
       "confidence": 1.0,
       "metric": "sujetos_obligados_sector_privado",
       "period": "",
-      "retrieved_at": "2026-08-13T02:02:22+00:00",
+      "retrieved_at": "2026-08-13T02:05:53+00:00",
       "source_url": "https://www.uaf.cl/media/documentos/Sujetos_Obligados_inscritos_en_la_UAF_al_31.07.2026.xlsx",
       "statistic_id": "STAT-b7782720a121fba5c12b",
       "unit": "registros vigentes",
-      "value": 9784.0
+      "value": 9782.0
     },
     {
       "as_of_date": "2025-12-31",
-      "capture_method": "OFFICIAL_UAF_REPORT",
+      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
       "category": "SUPERVISION",
       "confidence": 1.0,
       "metric": "acciones_supervision",
       "period": "2025",
-      "retrieved_at": "2026-08-13T02:02:17+00:00",
+      "retrieved_at": "2026-08-13T02:06:00+00:00",
       "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
       "statistic_id": "STAT-01e2e24d716f5bf61d3f",
       "unit": "acciones",
@@ -11729,16 +11677,120 @@
     },
     {
       "as_of_date": "2025-12-31",
-      "capture_method": "OFFICIAL_UAF_REPORT",
+      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
       "category": "INTELIGENCIA_FINANCIERA",
       "confidence": 1.0,
       "metric": "roe_recibidos",
       "period": "2025",
-      "retrieved_at": "2026-08-13T02:02:17+00:00",
+      "retrieved_at": "2026-08-13T02:06:00+00:00",
       "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
       "statistic_id": "STAT-0e72af8d177b7a1b918d",
       "unit": "reportes",
       "value": 1620219.0
+    },
+    {
+      "as_of_date": "2025-12-31",
+      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
+      "category": "INTELIGENCIA_FINANCIERA",
+      "confidence": 1.0,
+      "metric": "personas_informadas_en_ros",
+      "period": "2025",
+      "retrieved_at": "2026-08-13T02:06:00+00:00",
+      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
+      "statistic_id": "STAT-b0cb38370760d4c72510",
+      "unit": "personas",
+      "value": 22348.0
+    },
+    {
+      "as_of_date": "2025-12-31",
+      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
+      "category": "SANCIONES",
+      "confidence": 1.0,
+      "metric": "multas_sancionatorias_uf",
+      "period": "2025",
+      "retrieved_at": "2026-08-13T02:06:00+00:00",
+      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
+      "statistic_id": "STAT-b13646d5d503b7dc67f1",
+      "unit": "UF",
+      "value": 1925.0
+    },
+    {
+      "as_of_date": "2025-12-31",
+      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
+      "category": "SUJETOS_OBLIGADOS",
+      "confidence": 1.0,
+      "metric": "entidades_reportantes_total",
+      "period": "2025",
+      "retrieved_at": "2026-08-13T02:06:00+00:00",
+      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
+      "statistic_id": "STAT-b68b30f0d6532819907f",
+      "unit": "personas y entidades",
+      "value": 9911.0
+    },
+    {
+      "as_of_date": "2025-12-31",
+      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
+      "category": "SUJETOS_OBLIGADOS",
+      "confidence": 1.0,
+      "metric": "entidades_publicas_registradas",
+      "period": "2025",
+      "retrieved_at": "2026-08-13T02:06:00+00:00",
+      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
+      "statistic_id": "STAT-c20f4790f53e0e4cf66a",
+      "unit": "entidades",
+      "value": 508.0
+    },
+    {
+      "as_of_date": "2025-12-31",
+      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
+      "category": "INTELIGENCIA_FINANCIERA",
+      "confidence": 1.0,
+      "metric": "ros_con_indicios_laft",
+      "period": "2025",
+      "retrieved_at": "2026-08-13T02:06:00+00:00",
+      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
+      "statistic_id": "STAT-c7d143c5ded3ccbf801c",
+      "unit": "reportes",
+      "value": 1132.0
+    },
+    {
+      "as_of_date": "2025-12-31",
+      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
+      "category": "SUJETOS_OBLIGADOS",
+      "confidence": 1.0,
+      "metric": "sujetos_obligados_sector_privado",
+      "period": "2025",
+      "retrieved_at": "2026-08-13T02:06:00+00:00",
+      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
+      "statistic_id": "STAT-ca80a7e57469f9fbba9c",
+      "unit": "entidades",
+      "value": 9403.0
+    },
+    {
+      "as_of_date": "2025-12-31",
+      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
+      "category": "INTELIGENCIA_FINANCIERA",
+      "confidence": 1.0,
+      "metric": "ros_recibidos",
+      "period": "2025",
+      "retrieved_at": "2026-08-13T02:06:00+00:00",
+      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
+      "statistic_id": "STAT-cd96e489d409219a0f3d",
+      "unit": "reportes",
+      "value": 21828.0
+    },
+    {
+      "as_of_date": "2025-12-31",
+      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
+      "category": "SANCIONES",
+      "confidence": 1.0,
+      "metric": "procesos_sancionatorios_finalizados",
+      "period": "2025",
+      "retrieved_at": "2026-08-13T02:06:00+00:00",
+      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
+      "statistic_id": "STAT-d202f604c3c814756810",
+      "unit": "procesos",
+      "value": 59.0
     },
     {
       "as_of_date": "2025-12-31",
@@ -11756,97 +11808,6 @@
     {
       "as_of_date": "2025-12-31",
       "capture_method": "OFFICIAL_UAF_REPORT",
-      "category": "INTELIGENCIA_FINANCIERA",
-      "confidence": 1.0,
-      "metric": "personas_informadas_en_ros",
-      "period": "2025",
-      "retrieved_at": "2026-08-13T02:02:17+00:00",
-      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
-      "statistic_id": "STAT-b0cb38370760d4c72510",
-      "unit": "personas",
-      "value": 22348.0
-    },
-    {
-      "as_of_date": "2025-12-31",
-      "capture_method": "OFFICIAL_UAF_REPORT",
-      "category": "SANCIONES",
-      "confidence": 1.0,
-      "metric": "multas_sancionatorias_uf",
-      "period": "2025",
-      "retrieved_at": "2026-08-13T02:02:17+00:00",
-      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
-      "statistic_id": "STAT-b13646d5d503b7dc67f1",
-      "unit": "UF",
-      "value": 1925.0
-    },
-    {
-      "as_of_date": "2025-12-31",
-      "capture_method": "OFFICIAL_UAF_REPORT",
-      "category": "SUJETOS_OBLIGADOS",
-      "confidence": 1.0,
-      "metric": "entidades_reportantes_total",
-      "period": "2025",
-      "retrieved_at": "2026-08-13T02:02:17+00:00",
-      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
-      "statistic_id": "STAT-b68b30f0d6532819907f",
-      "unit": "personas y entidades",
-      "value": 9911.0
-    },
-    {
-      "as_of_date": "2025-12-31",
-      "capture_method": "OFFICIAL_UAF_REPORT",
-      "category": "SUJETOS_OBLIGADOS",
-      "confidence": 1.0,
-      "metric": "entidades_publicas_registradas",
-      "period": "2025",
-      "retrieved_at": "2026-08-13T02:02:17+00:00",
-      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
-      "statistic_id": "STAT-c20f4790f53e0e4cf66a",
-      "unit": "entidades",
-      "value": 508.0
-    },
-    {
-      "as_of_date": "2025-12-31",
-      "capture_method": "OFFICIAL_UAF_REPORT",
-      "category": "INTELIGENCIA_FINANCIERA",
-      "confidence": 1.0,
-      "metric": "ros_con_indicios_laft",
-      "period": "2025",
-      "retrieved_at": "2026-08-13T02:02:17+00:00",
-      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
-      "statistic_id": "STAT-c7d143c5ded3ccbf801c",
-      "unit": "reportes",
-      "value": 1132.0
-    },
-    {
-      "as_of_date": "2025-12-31",
-      "capture_method": "OFFICIAL_UAF_REPORT",
-      "category": "SUJETOS_OBLIGADOS",
-      "confidence": 1.0,
-      "metric": "sujetos_obligados_sector_privado",
-      "period": "2025",
-      "retrieved_at": "2026-08-13T02:02:17+00:00",
-      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
-      "statistic_id": "STAT-ca80a7e57469f9fbba9c",
-      "unit": "entidades",
-      "value": 9403.0
-    },
-    {
-      "as_of_date": "2025-12-31",
-      "capture_method": "OFFICIAL_UAF_REPORT",
-      "category": "INTELIGENCIA_FINANCIERA",
-      "confidence": 1.0,
-      "metric": "ros_recibidos",
-      "period": "2025",
-      "retrieved_at": "2026-08-13T02:02:17+00:00",
-      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
-      "statistic_id": "STAT-cd96e489d409219a0f3d",
-      "unit": "reportes",
-      "value": 21828.0
-    },
-    {
-      "as_of_date": "2025-12-31",
-      "capture_method": "OFFICIAL_UAF_REPORT",
       "category": "SANCIONES",
       "confidence": 1.0,
       "metric": "procesos_sancionatorios_iniciados",
@@ -11856,19 +11817,6 @@
       "statistic_id": "STAT-d1adbd2e4c71da717c7f",
       "unit": "procesos",
       "value": 0.0
-    },
-    {
-      "as_of_date": "2025-12-31",
-      "capture_method": "OFFICIAL_UAF_REPORT",
-      "category": "SANCIONES",
-      "confidence": 1.0,
-      "metric": "procesos_sancionatorios_finalizados",
-      "period": "2025",
-      "retrieved_at": "2026-08-13T02:02:17+00:00",
-      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
-      "statistic_id": "STAT-d202f604c3c814756810",
-      "unit": "procesos",
-      "value": 59.0
     },
     {
       "as_of_date": "2025-12-31",
@@ -12303,12 +12251,12 @@
   "statistics_latest": {
     "acciones_supervision": {
       "as_of_date": "2025-12-31",
-      "capture_method": "OFFICIAL_UAF_REPORT",
+      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
       "category": "SUPERVISION",
       "confidence": 1.0,
       "metric": "acciones_supervision",
       "period": "2025",
-      "retrieved_at": "2026-08-13T02:02:17+00:00",
+      "retrieved_at": "2026-08-13T02:06:00+00:00",
       "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
       "statistic_id": "STAT-01e2e24d716f5bf61d3f",
       "unit": "acciones",
@@ -12329,12 +12277,12 @@
     },
     "roe_recibidos": {
       "as_of_date": "2025-12-31",
-      "capture_method": "OFFICIAL_UAF_REPORT",
+      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
       "category": "INTELIGENCIA_FINANCIERA",
       "confidence": 1.0,
       "metric": "roe_recibidos",
       "period": "2025",
-      "retrieved_at": "2026-08-13T02:02:17+00:00",
+      "retrieved_at": "2026-08-13T02:06:00+00:00",
       "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
       "statistic_id": "STAT-0e72af8d177b7a1b918d",
       "unit": "reportes",
@@ -12368,12 +12316,12 @@
     },
     "entidades_reportantes_total": {
       "as_of_date": "2025-12-31",
-      "capture_method": "OFFICIAL_UAF_REPORT",
+      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
       "category": "SUJETOS_OBLIGADOS",
       "confidence": 1.0,
       "metric": "entidades_reportantes_total",
       "period": "2025",
-      "retrieved_at": "2026-08-13T02:02:17+00:00",
+      "retrieved_at": "2026-08-13T02:06:00+00:00",
       "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
       "statistic_id": "STAT-b68b30f0d6532819907f",
       "unit": "personas y entidades",
@@ -12407,42 +12355,42 @@
     },
     "ros_recibidos": {
       "as_of_date": "2025-12-31",
-      "capture_method": "OFFICIAL_UAF_REPORT",
+      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
       "category": "INTELIGENCIA_FINANCIERA",
       "confidence": 1.0,
       "metric": "ros_recibidos",
       "period": "2025",
-      "retrieved_at": "2026-08-13T02:02:17+00:00",
+      "retrieved_at": "2026-08-13T02:06:00+00:00",
       "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
       "statistic_id": "STAT-cd96e489d409219a0f3d",
       "unit": "reportes",
       "value": 21828.0
     },
     "sujetos_obligados_sector_privado": {
-      "as_of_date": "2027-12-31",
-      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
+      "as_of_date": "2026-06-30",
+      "capture_method": "UAF_REGISTRY_XLSX",
       "category": "SUJETOS_OBLIGADOS",
       "confidence": 1.0,
       "metric": "sujetos_obligados_sector_privado",
-      "period": "2027",
-      "retrieved_at": "2026-08-13T02:02:29+00:00",
-      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
-      "statistic_id": "STAT-67eaee6fdc3475b3ff0e",
-      "unit": "entidades",
-      "value": 9403.0
+      "period": "",
+      "retrieved_at": "2026-08-13T02:05:53+00:00",
+      "source_url": "https://www.uaf.cl/media/documentos/Sujetos_Obligados_inscritos_en_la_UAF_al_31.07.2026.xlsx",
+      "statistic_id": "STAT-b7782720a121fba5c12b",
+      "unit": "registros vigentes",
+      "value": 9782.0
     },
     "entidades_publicas_registradas": {
-      "as_of_date": "2027-12-31",
-      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
+      "as_of_date": "2026-06-30",
+      "capture_method": "UAF_REGISTRY_XLSX",
       "category": "SUJETOS_OBLIGADOS",
       "confidence": 1.0,
       "metric": "entidades_publicas_registradas",
-      "period": "2027",
-      "retrieved_at": "2026-08-13T02:02:29+00:00",
-      "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
-      "statistic_id": "STAT-9ceca24ffe654db3b1c4",
-      "unit": "entidades",
-      "value": 508.0
+      "period": "",
+      "retrieved_at": "2026-08-13T02:02:23+00:00",
+      "source_url": "https://www.uaf.cl/media/documentos/Instituciones_p%C3%BAblicas_inscritas_al_30-06-2026_1.xlsx",
+      "statistic_id": "STAT-94b6f230757c31b91a79",
+      "unit": "registros vigentes",
+      "value": 512.0
     },
     "procesos_sancionatorios_iniciados": {
       "as_of_date": "2025-12-31",
@@ -12459,51 +12407,51 @@
     },
     "personas_informadas_en_ros": {
       "as_of_date": "2025-12-31",
-      "capture_method": "OFFICIAL_UAF_REPORT",
+      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
       "category": "INTELIGENCIA_FINANCIERA",
       "confidence": 1.0,
       "metric": "personas_informadas_en_ros",
       "period": "2025",
-      "retrieved_at": "2026-08-13T02:02:17+00:00",
+      "retrieved_at": "2026-08-13T02:06:00+00:00",
       "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
       "statistic_id": "STAT-b0cb38370760d4c72510",
       "unit": "personas",
       "value": 22348.0
     },
     "multas_sancionatorias_uf": {
-      "as_of_date": "2027-12-31",
+      "as_of_date": "2025-12-31",
       "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
       "category": "SANCIONES",
       "confidence": 1.0,
       "metric": "multas_sancionatorias_uf",
-      "period": "2027",
-      "retrieved_at": "2026-08-13T02:02:29+00:00",
+      "period": "2025",
+      "retrieved_at": "2026-08-13T02:06:00+00:00",
       "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
-      "statistic_id": "STAT-e94770aa7f7297e54f08",
+      "statistic_id": "STAT-b13646d5d503b7dc67f1",
       "unit": "UF",
       "value": 1925.0
     },
     "ros_con_indicios_laft": {
-      "as_of_date": "2027-12-31",
+      "as_of_date": "2025-12-31",
       "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
       "category": "INTELIGENCIA_FINANCIERA",
       "confidence": 1.0,
       "metric": "ros_con_indicios_laft",
-      "period": "2027",
-      "retrieved_at": "2026-08-13T02:02:29+00:00",
+      "period": "2025",
+      "retrieved_at": "2026-08-13T02:06:00+00:00",
       "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
-      "statistic_id": "STAT-cfb2e1c08a6c28b69e93",
+      "statistic_id": "STAT-c7d143c5ded3ccbf801c",
       "unit": "reportes",
       "value": 1132.0
     },
     "procesos_sancionatorios_finalizados": {
       "as_of_date": "2025-12-31",
-      "capture_method": "OFFICIAL_UAF_REPORT",
+      "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
       "category": "SANCIONES",
       "confidence": 1.0,
       "metric": "procesos_sancionatorios_finalizados",
       "period": "2025",
-      "retrieved_at": "2026-08-13T02:02:17+00:00",
+      "retrieved_at": "2026-08-13T02:06:00+00:00",
       "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf",
       "statistic_id": "STAT-d202f604c3c814756810",
       "unit": "procesos",
@@ -12547,7 +12495,7 @@
           "period": "2025",
           "as_of_date": "2025-12-31",
           "value": 22348.0,
-          "capture_method": "OFFICIAL_UAF_REPORT",
+          "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
           "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf"
         }
       ]
@@ -12561,7 +12509,7 @@
           "period": "2025",
           "as_of_date": "2025-12-31",
           "value": 1620219.0,
-          "capture_method": "OFFICIAL_UAF_REPORT",
+          "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
           "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf"
         }
       ]
@@ -12617,13 +12565,6 @@
           "period": "2025",
           "as_of_date": "2025-12-31",
           "value": 1132.0,
-          "capture_method": "OFFICIAL_UAF_REPORT",
-          "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf"
-        },
-        {
-          "period": "2027",
-          "as_of_date": "2027-12-31",
-          "value": 1132.0,
           "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
           "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf"
         }
@@ -12666,7 +12607,7 @@
           "period": "2025",
           "as_of_date": "2025-12-31",
           "value": 21828.0,
-          "capture_method": "OFFICIAL_UAF_REPORT",
+          "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
           "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf"
         }
       ]
@@ -12679,13 +12620,6 @@
         {
           "period": "2025",
           "as_of_date": "2025-12-31",
-          "value": 1925.0,
-          "capture_method": "OFFICIAL_UAF_REPORT",
-          "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf"
-        },
-        {
-          "period": "2027",
-          "as_of_date": "2027-12-31",
           "value": 1925.0,
           "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
           "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf"
@@ -12701,7 +12635,7 @@
           "period": "2025",
           "as_of_date": "2025-12-31",
           "value": 59.0,
-          "capture_method": "OFFICIAL_UAF_REPORT",
+          "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
           "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf"
         }
       ]
@@ -12765,13 +12699,13 @@
     {
       "metric": "entidades_publicas_registradas",
       "category": "SUJETOS_OBLIGADOS",
-      "unit": "entidades",
+      "unit": "registros vigentes",
       "points": [
         {
           "period": "2025",
           "as_of_date": "2025-12-31",
           "value": 508.0,
-          "capture_method": "OFFICIAL_UAF_REPORT",
+          "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
           "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf"
         },
         {
@@ -12780,13 +12714,6 @@
           "value": 512.0,
           "capture_method": "UAF_REGISTRY_XLSX",
           "source_url": "https://www.uaf.cl/media/documentos/Instituciones_p%C3%BAblicas_inscritas_al_30-06-2026_1.xlsx"
-        },
-        {
-          "period": "2027",
-          "as_of_date": "2027-12-31",
-          "value": 508.0,
-          "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
-          "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf"
         }
       ]
     },
@@ -12841,7 +12768,7 @@
           "period": "2025",
           "as_of_date": "2025-12-31",
           "value": 9911.0,
-          "capture_method": "OFFICIAL_UAF_REPORT",
+          "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
           "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf"
         }
       ]
@@ -12849,7 +12776,7 @@
     {
       "metric": "sujetos_obligados_sector_privado",
       "category": "SUJETOS_OBLIGADOS",
-      "unit": "entidades",
+      "unit": "registros vigentes",
       "points": [
         {
           "period": "2025-06-30",
@@ -12862,22 +12789,15 @@
           "period": "2025",
           "as_of_date": "2025-12-31",
           "value": 9403.0,
-          "capture_method": "OFFICIAL_UAF_REPORT",
+          "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
           "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf"
         },
         {
           "period": "2026-06-30",
           "as_of_date": "2026-06-30",
-          "value": 9784.0,
+          "value": 9782.0,
           "capture_method": "UAF_REGISTRY_XLSX",
           "source_url": "https://www.uaf.cl/media/documentos/Sujetos_Obligados_inscritos_en_la_UAF_al_31.07.2026.xlsx"
-        },
-        {
-          "period": "2027",
-          "as_of_date": "2027-12-31",
-          "value": 9403.0,
-          "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
-          "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf"
         }
       ]
     },
@@ -12932,7 +12852,7 @@
           "period": "2025",
           "as_of_date": "2025-12-31",
           "value": 172.0,
-          "capture_method": "OFFICIAL_UAF_REPORT",
+          "capture_method": "LIVE_OFFICIAL_UAF_REPORT",
           "source_url": "https://www.uaf.cl/media/documentos/Informe_Estadistico_2025.pdf"
         }
       ]
@@ -12940,6 +12860,240 @@
   ],
   "watch_items": [],
   "source_runs": [
+    {
+      "content_hash": "c4a1aadec68c22f5a17dd6e28976092dccc6b167ea7089df80dbbe2af7648241",
+      "error": "",
+      "finished_at": "2026-08-13T02:06:06+00:00",
+      "http_status": 200,
+      "items_found": 1,
+      "run_id": "RUN-40fd02a3e6def4a70d46",
+      "source_id": "uaf_search_fallback",
+      "source_name": "Buscador UAF (respaldo de descubrimiento)",
+      "source_url": "https://www.uaf.cl/es-cl/search?q=informe+de+tipologias",
+      "started_at": "2026-08-13T02:06:05+00:00",
+      "status": "OK"
+    },
+    {
+      "content_hash": "",
+      "error": "",
+      "finished_at": "2026-08-13T02:06:06+00:00",
+      "http_status": 200,
+      "items_found": 10,
+      "run_id": "RUN-8ddb7b1cf76a42c9b9f5",
+      "source_id": "datos_gob_uaf_ckan",
+      "source_name": "Portal de Datos Abiertos - Organizacion UAF (CKAN)",
+      "source_url": "https://datos.gob.cl/api/3/action/package_search?fq=organization:unidad_de_analisis_financiero&rows=100",
+      "started_at": "2026-08-13T02:06:06+00:00",
+      "status": "OK"
+    },
+    {
+      "content_hash": "dff991e27c03fc78d8e6d594b7442f6b439ec92b81dd76400689ed6066649213",
+      "error": "",
+      "finished_at": "2026-08-13T02:06:05+00:00",
+      "http_status": 200,
+      "items_found": 1,
+      "run_id": "RUN-90dbb684146d20b0008d",
+      "source_id": "uaf_preguntas_frecuentes",
+      "source_name": "Preguntas frecuentes",
+      "source_url": "https://www.uaf.cl/es-cl/preguntas-frecuentes",
+      "started_at": "2026-08-13T02:06:05+00:00",
+      "status": "OK"
+    },
+    {
+      "content_hash": "25ec00c9dc3a644e4f0114c7840667bbf706728e3c749948e9ff89ead8ef3e77",
+      "error": "",
+      "finished_at": "2026-08-13T02:06:05+00:00",
+      "http_status": 200,
+      "items_found": 3,
+      "run_id": "RUN-e5b24f197de522558369",
+      "source_id": "uaf_noticias",
+      "source_name": "Noticias UAF",
+      "source_url": "https://www.uaf.cl/es-cl/",
+      "started_at": "2026-08-13T02:06:04+00:00",
+      "status": "OK"
+    },
+    {
+      "content_hash": "",
+      "error": "HTTPError: 404 Client Error: Not Found for url: https://www.uaf.cl/es-cl/intituciones_publicas/informe.aspx",
+      "finished_at": "2026-08-13T02:06:04+00:00",
+      "http_status": null,
+      "items_found": 0,
+      "run_id": "RUN-3d158901d6b4baf56aed",
+      "source_id": "uaf_informe_tipologias_legacy",
+      "source_name": "Informe de tipologias (sitio legado, instituciones publicas)",
+      "source_url": "https://www.uaf.cl/intituciones_publicas/informe.aspx",
+      "started_at": "2026-08-13T02:06:04+00:00",
+      "status": "ERROR"
+    },
+    {
+      "content_hash": "",
+      "error": "HTTPError: 404 Client Error: Not Found for url: https://www.uaf.cl/es-cl/lavado/sanciones.aspx",
+      "finished_at": "2026-08-13T02:06:03+00:00",
+      "http_status": null,
+      "items_found": 0,
+      "run_id": "RUN-6402b1fd71d01ebf10ed",
+      "source_id": "uaf_sanciones_legacy_lavado",
+      "source_name": "Sanciones (seccion Lavado de Activos, sitio legado)",
+      "source_url": "https://www.uaf.cl/lavado/sanciones.aspx",
+      "started_at": "2026-08-13T02:06:03+00:00",
+      "status": "ERROR"
+    },
+    {
+      "content_hash": "",
+      "error": "HTTPError: 404 Client Error: Not Found for url: https://www.uaf.cl/es-cl/entidades_reportantes/sanciones.aspx",
+      "finished_at": "2026-08-13T02:06:03+00:00",
+      "http_status": null,
+      "items_found": 0,
+      "run_id": "RUN-dcdea918b12f441db8a4",
+      "source_id": "uaf_sanciones_legacy_entidades",
+      "source_name": "Sanciones ejecutoriadas (sitio legado)",
+      "source_url": "https://www.uaf.cl/entidades_reportantes/sanciones.aspx",
+      "started_at": "2026-08-13T02:06:03+00:00",
+      "status": "ERROR"
+    },
+    {
+      "content_hash": "a1205fd144fd459ccd46898bedb6973a26a9280f59188733fe373c678578ce0b",
+      "error": "",
+      "finished_at": "2026-08-13T02:06:02+00:00",
+      "http_status": 200,
+      "items_found": 1,
+      "run_id": "RUN-1472b3f815ffbf154131",
+      "source_id": "uaf_sector_publico_reportes",
+      "source_name": "Tipos de reporte - Sector Publico",
+      "source_url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-publico/tipos-de-reportes",
+      "started_at": "2026-08-13T02:06:02+00:00",
+      "status": "OK"
+    },
+    {
+      "content_hash": "4573385f03de72ea3d251f448352b10f20eef1ca81a280668b2dab71c940de64",
+      "error": "",
+      "finished_at": "2026-08-13T02:06:02+00:00",
+      "http_status": 200,
+      "items_found": 1,
+      "run_id": "RUN-6a516984bfe99ea0dd4b",
+      "source_id": "uaf_listas_onu",
+      "source_name": "Listas de Resoluciones ONU",
+      "source_url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-privado/listas-de-resoluciones-onu",
+      "started_at": "2026-08-13T02:06:02+00:00",
+      "status": "OK"
+    },
+    {
+      "content_hash": "31624e2ca1b2cf4d5c583ba3842ef7e61596b9fbcdd1f97fde64b78ea8b0ad06",
+      "error": "",
+      "finished_at": "2026-08-13T02:06:01+00:00",
+      "http_status": 200,
+      "items_found": 1,
+      "run_id": "RUN-0d8053d88ef56e811323",
+      "source_id": "uaf_roe",
+      "source_name": "Reporte de Operaciones en Efectivo (ROE)",
+      "source_url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-privado/reporte-de-operaciones-en-efectivo-roe",
+      "started_at": "2026-08-13T02:06:01+00:00",
+      "status": "OK"
+    },
+    {
+      "content_hash": "6f190ac76f76e5445c919c5b62033f5a9fb5965cadd678febe77daa873d1ccb8",
+      "error": "",
+      "finished_at": "2026-08-13T02:06:01+00:00",
+      "http_status": 200,
+      "items_found": 1,
+      "run_id": "RUN-72874e745a060cbe036f",
+      "source_id": "uaf_ros",
+      "source_name": "Reporte de Operaciones Sospechosas (ROS)",
+      "source_url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-privado/reporte-de-operaciones-sospechosas-ros",
+      "started_at": "2026-08-13T02:06:01+00:00",
+      "status": "OK"
+    },
+    {
+      "content_hash": "68c0841e0c3ffdf63139c3357592cdaca2e9857570ce4ebbc28ce1d935790df6",
+      "error": "",
+      "finished_at": "2026-08-13T02:06:00+00:00",
+      "http_status": 200,
+      "items_found": 10,
+      "run_id": "RUN-50f947d46609e5b0507e",
+      "source_id": "uaf_informes_estadisticos",
+      "source_name": "Informes Estadisticos UAF",
+      "source_url": "https://www.uaf.cl/es-cl/publicaciones-uaf/informes-estadisticos",
+      "started_at": "2026-08-13T02:05:55+00:00",
+      "status": "OK"
+    },
+    {
+      "content_hash": "ae507e98738c84a508cfac4aab4c5c6a588cde14e1ddb5acb5fdeb160650f6da",
+      "error": "",
+      "finished_at": "2026-08-13T02:06:00+00:00",
+      "http_status": 200,
+      "items_found": 1,
+      "run_id": "RUN-c285cabc8f1279c1d1e2",
+      "source_id": "uaf_sujetos_obligados_quienes_reportan",
+      "source_name": "Quienes deben reportar",
+      "source_url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-privado/quienes-deben-reportar",
+      "started_at": "2026-08-13T02:06:00+00:00",
+      "status": "OK"
+    },
+    {
+      "content_hash": "23299d58bd904130d4f5b2764be5c24fb9fbe190d4f598557b73be316b174845",
+      "error": "",
+      "finished_at": "2026-08-13T02:05:54+00:00",
+      "http_status": 200,
+      "items_found": 512,
+      "run_id": "RUN-5165949ea881bc5a5e2c",
+      "source_id": "uaf_sector_publico_inscritos",
+      "source_name": "Inscritos en la UAF - sector publico",
+      "source_url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-publico/inscritos-en-la-uaf",
+      "started_at": "2026-08-13T02:05:53+00:00",
+      "status": "OK"
+    },
+    {
+      "content_hash": "e6d4bf1d3cd26106194f84141c3c96445fd888a99499b8e96e81d0ef23e125d3",
+      "error": "",
+      "finished_at": "2026-08-13T02:05:53+00:00",
+      "http_status": 200,
+      "items_found": 9782,
+      "run_id": "RUN-b6d27e216554bafe2d82",
+      "source_id": "uaf_sujetos_obligados_inscritos",
+      "source_name": "Inscritos en la UAF - sector privado",
+      "source_url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-privado/inscritos-en-la-uaf",
+      "started_at": "2026-08-13T02:05:50+00:00",
+      "status": "OK"
+    },
+    {
+      "content_hash": "baf9932d30544e28048b49f8bf78bbdaee20fcf3c3c847d52f00fd41d494b2fb",
+      "error": "",
+      "finished_at": "2026-08-13T02:05:50+00:00",
+      "http_status": 200,
+      "items_found": 0,
+      "run_id": "RUN-ad8468d17502305c4a49",
+      "source_id": "uaf_circulares",
+      "source_name": "Circulares UAF",
+      "source_url": "https://www.uaf.cl/es-cl/normativa/circulares-uaf",
+      "started_at": "2026-08-13T02:05:50+00:00",
+      "status": "OK"
+    },
+    {
+      "content_hash": "42b5a1282bf1f63286829bdfe2d6f68d1d9551db48adfb0d7f44ff0db8f1760f",
+      "error": "",
+      "finished_at": "2026-08-13T02:05:50+00:00",
+      "http_status": 200,
+      "items_found": 1,
+      "run_id": "RUN-d247a0d2f62b40af08a6",
+      "source_id": "uaf_sujetos_obligados",
+      "source_name": "Sujetos Obligados (portada)",
+      "source_url": "https://www.uaf.cl/es-cl/sujetos-obligados",
+      "started_at": "2026-08-13T02:05:50+00:00",
+      "status": "OK"
+    },
+    {
+      "content_hash": "eeb53d48884303eb85f71d6c1dd25492c24deaae02f07d7ca38c71a4716df212",
+      "error": "",
+      "finished_at": "2026-08-13T02:05:49+00:00",
+      "http_status": 200,
+      "items_found": 1,
+      "run_id": "RUN-ebe0a60a578ff66760d3",
+      "source_id": "uaf_normativa_ley",
+      "source_name": "Nuestra Ley (Ley 19.913)",
+      "source_url": "https://www.uaf.cl/es-cl/normativa/nuestra-ley",
+      "started_at": "2026-08-13T02:05:49+00:00",
+      "status": "OK"
+    },
     {
       "content_hash": "c4a1aadec68c22f5a17dd6e28976092dccc6b167ea7089df80dbbe2af7648241",
       "error": "",
@@ -13397,12 +13551,12 @@
     }
   ],
   "coverage": {
-    "generated_at": "2026-08-13T02:02:35+00:00",
+    "generated_at": "2026-08-13T02:06:07+00:00",
     "warning": "La cobertura depende de que las rutas configuradas sigan vigentes en el sitio de la UAF; varias fuentes usan URLs legadas (.aspx) que deben reconfirmarse periodicamente.",
     "documents": {
       "count": 30,
       "oldest_date": "2015-10-30",
-      "newest_date": "2027-12-31",
+      "newest_date": "2026-06-30",
       "by_module": [
         {
           "name": "DATOS_ABIERTOS",
@@ -13418,10 +13572,6 @@
         },
         {
           "name": "UAF_SECTOR_PUBLICO_REPORTES",
-          "count": 1
-        },
-        {
-          "name": "ESTADISTICAS",
           "count": 1
         },
         {
@@ -13469,6 +13619,10 @@
           "count": 1
         },
         {
+          "name": "ESTADISTICAS",
+          "count": 1
+        },
+        {
           "name": "UAF_SEARCH_FALLBACK",
           "count": 1
         }
@@ -13501,11 +13655,15 @@
       "with_amount": 0
     },
     "statistics": {
-      "count": 53,
+      "count": 49,
       "by_capture_method": [
         {
           "name": "OFFICIAL_UAF_REPORT",
-          "count": 33
+          "count": 23
+        },
+        {
+          "name": "LIVE_OFFICIAL_UAF_REPORT",
+          "count": 10
         },
         {
           "name": "CKAN_API",
@@ -13513,10 +13671,6 @@
         },
         {
           "name": "UAF_REGISTRY_XLSX",
-          "count": 4
-        },
-        {
-          "name": "LIVE_OFFICIAL_UAF_REPORT",
           "count": 4
         },
         {
@@ -13538,117 +13692,117 @@
         },
         "uaf_circulares": {
           "status": "OK",
-          "finished_at": "2026-08-13T02:02:19+00:00",
+          "finished_at": "2026-08-13T02:05:50+00:00",
           "error": "",
           "items_found": 0
         },
         "uaf_normativa_ley": {
           "status": "OK",
-          "finished_at": "2026-08-13T02:02:18+00:00",
+          "finished_at": "2026-08-13T02:05:49+00:00",
           "error": "",
           "items_found": 1
         },
         "uaf_sujetos_obligados_inscritos": {
           "status": "OK",
-          "finished_at": "2026-08-13T02:02:22+00:00",
+          "finished_at": "2026-08-13T02:05:53+00:00",
           "error": "",
-          "items_found": 9784
+          "items_found": 9782
         },
         "uaf_sujetos_obligados": {
           "status": "OK",
-          "finished_at": "2026-08-13T02:02:19+00:00",
+          "finished_at": "2026-08-13T02:05:50+00:00",
           "error": "",
           "items_found": 1
         },
         "uaf_sujetos_obligados_quienes_reportan": {
           "status": "OK",
-          "finished_at": "2026-08-13T02:02:29+00:00",
+          "finished_at": "2026-08-13T02:06:00+00:00",
           "error": "",
           "items_found": 1
         },
         "uaf_ros": {
           "status": "OK",
-          "finished_at": "2026-08-13T02:02:30+00:00",
+          "finished_at": "2026-08-13T02:06:01+00:00",
           "error": "",
           "items_found": 1
         },
         "uaf_listas_onu": {
           "status": "OK",
-          "finished_at": "2026-08-13T02:02:31+00:00",
+          "finished_at": "2026-08-13T02:06:02+00:00",
           "error": "",
           "items_found": 1
         },
         "uaf_roe": {
           "status": "OK",
-          "finished_at": "2026-08-13T02:02:30+00:00",
+          "finished_at": "2026-08-13T02:06:01+00:00",
           "error": "",
           "items_found": 1
         },
         "uaf_sanciones_legacy_entidades": {
           "status": "ERROR",
-          "finished_at": "2026-08-13T02:02:32+00:00",
+          "finished_at": "2026-08-13T02:06:03+00:00",
           "error": "HTTPError: 404 Client Error: Not Found for url: https://www.uaf.cl/es-cl/entidades_reportantes/sanciones.aspx",
           "items_found": 0
         },
         "uaf_sector_publico_reportes": {
           "status": "OK",
-          "finished_at": "2026-08-13T02:02:31+00:00",
+          "finished_at": "2026-08-13T02:06:02+00:00",
           "error": "",
           "items_found": 1
         },
         "uaf_sanciones_legacy_lavado": {
           "status": "ERROR",
-          "finished_at": "2026-08-13T02:02:32+00:00",
+          "finished_at": "2026-08-13T02:06:03+00:00",
           "error": "HTTPError: 404 Client Error: Not Found for url: https://www.uaf.cl/es-cl/lavado/sanciones.aspx",
           "items_found": 0
         },
         "uaf_informe_tipologias_legacy": {
           "status": "ERROR",
-          "finished_at": "2026-08-13T02:02:33+00:00",
+          "finished_at": "2026-08-13T02:06:04+00:00",
           "error": "HTTPError: 404 Client Error: Not Found for url: https://www.uaf.cl/es-cl/intituciones_publicas/informe.aspx",
           "items_found": 0
         },
         "uaf_noticias": {
           "status": "OK",
-          "finished_at": "2026-08-13T02:02:33+00:00",
+          "finished_at": "2026-08-13T02:06:05+00:00",
           "error": "",
           "items_found": 3
         },
         "uaf_preguntas_frecuentes": {
           "status": "OK",
-          "finished_at": "2026-08-13T02:02:34+00:00",
+          "finished_at": "2026-08-13T02:06:05+00:00",
           "error": "",
           "items_found": 1
         },
         "datos_gob_uaf_ckan": {
           "status": "OK",
-          "finished_at": "2026-08-13T02:02:35+00:00",
+          "finished_at": "2026-08-13T02:06:06+00:00",
           "error": "",
           "items_found": 10
         },
         "uaf_search_fallback": {
           "status": "OK",
-          "finished_at": "2026-08-13T02:02:35+00:00",
+          "finished_at": "2026-08-13T02:06:06+00:00",
           "error": "",
           "items_found": 1
         },
         "uaf_sector_publico_inscritos": {
           "status": "OK",
-          "finished_at": "2026-08-13T02:02:23+00:00",
+          "finished_at": "2026-08-13T02:05:54+00:00",
           "error": "",
           "items_found": 512
         },
         "uaf_informes_estadisticos": {
           "status": "OK",
-          "finished_at": "2026-08-13T02:02:29+00:00",
+          "finished_at": "2026-08-13T02:06:00+00:00",
           "error": "",
-          "items_found": 4
+          "items_found": 10
         }
       }
     }
   },
   "quality": {
-    "generated_at": "2026-08-13T02:02:35Z",
+    "generated_at": "2026-08-13T02:06:07Z",
     "checks": [
       {
         "id": "duplicate_entity_names",
@@ -13773,7 +13927,11 @@
     "capture_method_mix": [
       {
         "name": "OFFICIAL_UAF_REPORT",
-        "count": 33
+        "count": 23
+      },
+      {
+        "name": "LIVE_OFFICIAL_UAF_REPORT",
+        "count": 10
       },
       {
         "name": "CKAN_API",
@@ -13781,10 +13939,6 @@
       },
       {
         "name": "UAF_REGISTRY_XLSX",
-        "count": 4
-      },
-      {
-        "name": "LIVE_OFFICIAL_UAF_REPORT",
         "count": 4
       },
       {
