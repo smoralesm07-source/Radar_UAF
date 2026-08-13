@@ -4,8 +4,8 @@ import re
 
 from bs4 import BeautifulSoup
 
-from .models import Document, Entity, Event, Sanction, Statistic, WatchItem, stable_id, utcnow_iso
-from .utils import normalize_name, normalize_ws, parse_rut, parse_uf_amounts, sha256_text
+from .models import Document, Entity, Event, Sanction, Statistic, WatchItem, stable_id
+from .utils import normalize_name, normalize_ws, parse_uf_amounts, sha256_text
 
 CIRCULAR_RE = re.compile(r"circular\s+(?:uaf\s+)?n?°?\s*(\d+)", re.IGNORECASE)
 DATE_RE = re.compile(r"\b(\d{1,2})[-/](\d{1,2})[-/](\d{4})\b")
@@ -28,9 +28,6 @@ def first_date(text: str) -> str:
 
 
 def parse_normativa_index(html: str, source_url: str) -> tuple[list[Document], list[WatchItem]]:
-    """Extrae circulares/normas listadas en la pagina de normativa UAF. Cada fila o bloque
-    de texto que menciona 'Circular N°X' se registra como Document; si el bloque no declara
-    explicitamente su estado se marca UNKNOWN para evitar inferir vigencia sin evidencia."""
     soup = BeautifulSoup(html or "", "lxml")
     documents: list[Document] = []
     watch: list[WatchItem] = []
@@ -81,9 +78,8 @@ def parse_normativa_index(html: str, source_url: str) -> tuple[list[Document], l
 
 
 def parse_registry_snapshot(html: str, source_url: str) -> list[Statistic]:
-    """Busca cifras agregadas del Registro de Entidades Reportantes en el texto de la pagina
-    (p.ej. '8.970 entidades'). No intenta reconstruir el listado individual de inscritos desde
-    esta vista resumen; eso queda para una extraccion tabular dedicada en una iteracion futura."""
+    """Fallback para páginas antiguas que incluían la cifra directamente en HTML.
+    v0.2 privilegia el XLSX oficial y conserva esta función para compatibilidad histórica."""
     soup = BeautifulSoup(html or "", "lxml")
     text = normalize_ws(soup.get_text(" ", strip=True))
     stats: list[Statistic] = []
@@ -112,9 +108,82 @@ def parse_registry_snapshot(html: str, source_url: str) -> list[Statistic]:
     return stats[:5]
 
 
+def registry_result_to_records(result: dict) -> tuple[list[Document], list[Entity], list[Statistic]]:
+    sector = result.get("sector", "private")
+    as_of = result.get("as_of_date", "")
+    download_url = result.get("download_url", "") or result.get("source_url", "")
+    label = "sector privado" if sector == "private" else "sector público"
+    document = Document(
+        document_id=stable_id("DOC", "REGISTRO_UAF", sector, as_of or download_url),
+        source_system="UAF",
+        source_module="SUJETOS_OBLIGADOS",
+        source_url=download_url,
+        title=f"Registro de Entidades Reportantes UAF - {label} - corte {as_of or 'vigente'}",
+        document_type="REGISTRO_UAF_XLSX",
+        document_date=as_of,
+        status="VIGENTE",
+        content_hash=result.get("content_hash", ""),
+        raw_text_excerpt=(
+            f"Listado oficial UAF con {result.get('listed_count', 0)} filas publicadas y "
+            f"{result.get('unique_rut_count', 0)} RUT únicos."
+        ),
+    )
+
+    entities: list[Entity] = []
+    for row in result.get("rows", []):
+        rut = row.get("rut", "")
+        name = row.get("name", "") or rut
+        if not rut:
+            continue
+        entities.append(
+            Entity(
+                entity_id=stable_id("ENT", "RUT", rut),
+                entity_type="SUJETO_OBLIGADO" if sector == "private" else "ORGANISMO_PUBLICO",
+                name=name,
+                normalized_name=normalize_name(name),
+                rut=rut,
+                sector="PRIVADO" if sector == "private" else "PUBLICO",
+                activity=row.get("activity", ""),
+                source_document_id=document.document_id,
+                confidence=1.0,
+            )
+        )
+
+    if sector == "private":
+        metric_listed = "sujetos_obligados_sector_privado"
+        metric_unique = "sujetos_obligados_sector_privado_rut_unicos"
+    else:
+        metric_listed = "entidades_publicas_registradas"
+        metric_unique = "entidades_publicas_rut_unicos"
+
+    statistics = [
+        Statistic(
+            statistic_id=stable_id("STAT", "UAF_REGISTRY", metric_listed, as_of),
+            metric=metric_listed,
+            category="SUJETOS_OBLIGADOS",
+            value=float(result.get("listed_count", 0)),
+            unit="registros vigentes",
+            as_of_date=as_of,
+            source_url=download_url,
+            capture_method="UAF_REGISTRY_XLSX",
+            confidence=1.0,
+        ),
+        Statistic(
+            statistic_id=stable_id("STAT", "UAF_REGISTRY", metric_unique, as_of),
+            metric=metric_unique,
+            category="SUJETOS_OBLIGADOS",
+            value=float(result.get("unique_rut_count", 0)),
+            unit="RUT únicos",
+            as_of_date=as_of,
+            source_url=download_url,
+            capture_method="UAF_REGISTRY_XLSX",
+            confidence=1.0,
+        ),
+    ]
+    return [document], entities, statistics
+
+
 def parse_sanciones_table(html: str, source_url: str) -> list[Sanction]:
-    """Extrae filas de tablas de sanciones ejecutoriadas. Tolera distintas estructuras de
-    tabla; si una fila no trae al menos un nombre y una fecha reconocible, se descarta."""
     soup = BeautifulSoup(html or "", "lxml")
     sanctions: list[Sanction] = []
     rows = soup.find_all("tr")
@@ -147,6 +216,109 @@ def parse_sanciones_table(html: str, source_url: str) -> list[Sanction]:
             )
         )
     return sanctions
+
+
+def _es_number(raw: str) -> float:
+    cleaned = re.sub(r"[^0-9,\.]", "", raw or "")
+    if not cleaned:
+        return 0.0
+    if "." in cleaned and "," not in cleaned:
+        cleaned = cleaned.replace(".", "")
+    elif "," in cleaned:
+        cleaned = cleaned.replace(".", "").replace(",", ".")
+    try:
+        return float(cleaned)
+    except ValueError:
+        return 0.0
+
+
+def parse_statistical_report(report: dict, full_text: str) -> tuple[list[Document], list[Statistic]]:
+    """Materializa indicadores clave del último Informe Estadístico anual de la UAF.
+    Las series completas 2021-2025 se cargan desde config/official_statistics_2025.json;
+    este extractor en vivo valida y actualiza los valores del último año directamente desde PDF."""
+    year = int(report.get("report_year") or 0)
+    url = report.get("report_url", "") or report.get("source_url", "")
+    text = normalize_ws(full_text)
+    document = Document(
+        document_id=stable_id("DOC", "UAF_INFORME_ESTADISTICO", year or url),
+        source_system="UAF",
+        source_module="ESTADISTICAS",
+        source_url=url,
+        title=f"Informe Estadístico UAF {year}" if year else "Informe Estadístico UAF",
+        document_type="INFORME_ESTADISTICO",
+        document_date=f"{year}-12-31" if year else "",
+        status="VIGENTE",
+        content_hash=report.get("content_hash", ""),
+        raw_text_excerpt=report.get("text_excerpt", ""),
+    )
+    if not year or not text:
+        return [document], []
+
+    patterns = {
+        "entidades_reportantes_total": [
+            rf"Al 31 de diciembre de {year},\s*([0-9\.]+)\s+personas naturales y jurídicas se encuentran inscritas",
+            rf"Registro de Entidades Reportantes.{0,100}?{year}.{0,100}?([0-9\.]+)\s+personas naturales y jurídicas inscritas",
+        ],
+        "sujetos_obligados_sector_privado": [rf"De estas,\s*([0-9\.]+)\s+pertenecen a las 55 actividades económicas"],
+        "entidades_publicas_registradas": [rf"y\s*([0-9\.]+)\s+son entidades públicas"],
+        "ros_recibidos": [rf"durante el año {year} la UAF recibió un total de\s*([0-9\.]+)\s+ROS"],
+        "roe_recibidos": [rf"Durante el {year}, la UAF recibió\s*([0-9\.]+)\s+ROE"],
+        "acciones_supervision": [rf"en {year}, la UAF realizó\s*([0-9\.]+)\s+acciones de supervisión"],
+        "procesos_sancionatorios_finalizados": [rf"durante el {year} la UAF finalizó.{0,100}?([0-9\.]+)\s+procesos sancionatorios"],
+        "multas_sancionatorias_uf": [rf"multas a beneficio fiscal.{0,120}?ascendieron a UF\s*([0-9\.]+)"],
+        "personas_informadas_en_ros": [rf"ROS recibidos en {year}.{0,120}?incluyeron información de\s*([0-9\.]+)\s+personas"],
+        "ros_con_indicios_laft": [rf"información de\s*([0-9\.]+)\s+ROS, cuyos respectivos Informes de Inteligencia"],
+    }
+    categories = {
+        "entidades_reportantes_total": "SUJETOS_OBLIGADOS",
+        "sujetos_obligados_sector_privado": "SUJETOS_OBLIGADOS",
+        "entidades_publicas_registradas": "SUJETOS_OBLIGADOS",
+        "ros_recibidos": "INTELIGENCIA_FINANCIERA",
+        "roe_recibidos": "INTELIGENCIA_FINANCIERA",
+        "acciones_supervision": "SUPERVISION",
+        "procesos_sancionatorios_finalizados": "SANCIONES",
+        "multas_sancionatorias_uf": "SANCIONES",
+        "personas_informadas_en_ros": "INTELIGENCIA_FINANCIERA",
+        "ros_con_indicios_laft": "INTELIGENCIA_FINANCIERA",
+    }
+    units = {
+        "entidades_reportantes_total": "personas y entidades",
+        "sujetos_obligados_sector_privado": "entidades",
+        "entidades_publicas_registradas": "entidades",
+        "ros_recibidos": "reportes",
+        "roe_recibidos": "reportes",
+        "acciones_supervision": "acciones",
+        "procesos_sancionatorios_finalizados": "procesos",
+        "multas_sancionatorias_uf": "UF",
+        "personas_informadas_en_ros": "personas",
+        "ros_con_indicios_laft": "reportes",
+    }
+
+    statistics: list[Statistic] = []
+    for metric, candidates in patterns.items():
+        value = None
+        for pattern in candidates:
+            match = re.search(pattern, text, flags=re.IGNORECASE)
+            if match:
+                value = _es_number(match.group(1))
+                break
+        if value is None:
+            continue
+        statistics.append(
+            Statistic(
+                statistic_id=stable_id("STAT", "UAF_ANNUAL", metric, year),
+                metric=metric,
+                category=categories[metric],
+                value=value,
+                unit=units[metric],
+                period=str(year),
+                as_of_date=f"{year}-12-31",
+                source_url=url,
+                capture_method="LIVE_OFFICIAL_UAF_REPORT",
+                confidence=1.0,
+            )
+        )
+    return [document], statistics
 
 
 def parse_ckan_statistics(ckan_result: dict) -> tuple[list[Document], list[Statistic]]:
@@ -197,8 +369,6 @@ def parse_news_index(html: str, index_url: str) -> list[dict]:
 
 
 def seed_fact_to_records(fact: dict) -> tuple[Document | None, Statistic | None, Event | None]:
-    """Traduce un hecho semilla (config/seed_facts.json) verificado por busqueda OSINT a las
-    tablas Document/Statistic/Event, preservando su procedencia distinta a un scrape en vivo."""
     document = Document(
         document_id=stable_id("DOC", "SEED", fact["fact_id"]),
         source_system="UAF" if "uaf.cl" in fact.get("source_url", "") else "OSINT_TERCERO",
