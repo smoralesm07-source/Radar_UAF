@@ -27,7 +27,7 @@ jobs:
 
           cat .bootstrap/radar_uaf.b64.part* > /tmp/radar_uaf.b64
           base64 --decode /tmp/radar_uaf.b64 > /tmp/radar_uaf.tar.gz
-          echo "7545203bb7b8f8bf41f5273c6eaf1702e7cfb7c3f88636a041f6ef3bcc292845  /tmp/radar_uaf.tar.gz" | sha256sum --check --strict
+          echo "ec9296e566d98aa2508766ef081311079fd8eee987519367f5db20b42a1cad83  /tmp/radar_uaf.tar.gz" | sha256sum --check --strict
 
           rm -rf /tmp/radar_uaf_unpack
           mkdir -p /tmp/radar_uaf_unpack
