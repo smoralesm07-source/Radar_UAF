@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from collections import Counter
+from collections import Counter, defaultdict
 
 from .config import DOCS_DIR
 from .coverage import summarize_coverage
@@ -9,96 +9,148 @@ from .quality import evaluate_consistency
 from .storage import read_jsonl, table_path
 
 DISCLAIMER = (
-    "Radar UAF transforma informacion publicada por la Unidad de Analisis Financiero de Chile "
-    "y por el Portal de Datos Abiertos en datos estructurados para priorizacion analitica AML/LA-FT. "
-    "Una sancion, una cifra agregada o una coincidencia con una lista no acredita por si sola lavado "
-    "de activos, financiamiento del terrorismo, dolo ni responsabilidad individual. Los hechos marcados "
-    "como 'semilla OSINT' provienen de busqueda web verificada con fuente citada, no de scraping directo, "
-    "y deben confirmarse en la proxima corrida en linea del colector antes de tratarse como definitivos."
+    "Radar UAF transforma información publicada por la Unidad de Análisis Financiero de Chile "
+    "y por el Portal de Datos Abiertos en datos estructurados para priorización analítica AML/LA-FT. "
+    "Las cifras de registro vigente se obtienen del archivo oficial publicado por la UAF y se muestran "
+    "con su fecha de corte. Las series anuales provienen del Informe Estadístico UAF. Una sanción, cifra "
+    "agregada o coincidencia con una lista no acredita por sí sola lavado de activos, financiamiento del "
+    "terrorismo, dolo ni responsabilidad individual."
 )
 
 IMPROVEMENT_BACKLOG = [
     {
-        "id": "confirm-legacy-sanciones-path",
-        "area": "Cobertura",
-        "priority": "ALTA",
-        "title": "Confirmar si las rutas .aspx de sanciones siguen sirviendo el listado completo",
-        "detail": "El sitio migro a una CMS bajo /es-cl/, pero las rutas legadas /entidades_reportantes/sanciones.aspx y /lavado/sanciones.aspx siguen indexadas. Es necesario validar en la primera corrida en GitHub Actions si responden 200, si redirigen, o si el listado historico completo ahora vive en una ruta /es-cl/ aun no identificada, y ajustar config/sources.json en consecuencia.",
-    },
-    {
         "id": "individual-sanction-records",
-        "area": "Extraccion",
+        "area": "Extracción",
         "priority": "ALTA",
-        "title": "Extraer resoluciones sancionatorias individuales, no solo cifras agregadas",
-        "detail": "Los hechos semilla actuales solo incluyen totales anuales (2.915 UF / 63 entidades en 2024) tomados de cobertura de prensa. El colector en vivo debe parsear la tabla oficial fila por fila (numero de resolucion, RUT, fecha, monto UF, articulo infringido) para permitir analisis de recurrencia por entidad.",
+        "title": "Extraer resoluciones sancionatorias individuales y entidades involucradas",
+        "detail": "v0.2 corrige sujetos obligados y estadísticas. El siguiente foco es resolver la sección moderna de sanciones ejecutoriadas, abrir cada resolución y estructurar entidad, RUT cuando sea público, fecha, infracción, monto UF y resolución para análisis de recurrencia.",
     },
     {
-        "id": "ckan-time-series",
-        "area": "Datos abiertos",
+        "id": "registry-diff",
+        "area": "Sujetos obligados",
         "priority": "ALTA",
-        "title": "Convertir los datasets CKAN de datos.gob.cl en series temporales reales",
-        "detail": "datos.gob.cl publica ROS enviadas al Ministerio Publico, ROS recibidas, penas de comiso y procesos judiciales por LA. Hoy solo se registra metadata del dataset (recursos, fecha de modificacion); falta descargar los recursos CSV/XLSX y modelarlos como observaciones anuales/mensuales en la tabla statistics.",
+        "title": "Generar altas, bajas y cambios entre cortes semestrales del registro UAF",
+        "detail": "El XLSX vigente ya se ingiere a nivel RUT. La siguiente mejora es comparar cada corte contra el anterior y generar eventos por inscripción, salida o cambio de actividad, conservando trazabilidad temporal.",
+    },
+    {
+        "id": "ckan-resource-series",
+        "area": "Datos abiertos",
+        "priority": "MEDIA",
+        "title": "Descargar recursos CKAN para complementar las series oficiales",
+        "detail": "El Informe Estadístico ya aporta series 2021-2025. Falta descargar los recursos CSV/XLSX de datos.gob.cl para ampliar granularidad mensual/anual en ROS, comisos y procesos judiciales y contrastarlos con el informe institucional.",
     },
     {
         "id": "entity-hub-crosslink",
         "area": "Arquitectura",
         "priority": "ALTA",
-        "title": "Definir el Entity Hub compartido con Radar-CGR, Radar-SII y Radar-Sectorial",
-        "detail": "El modelo Entity de este repositorio ya replica la forma (entity_id, entity_type, name, normalized_name, rut) usada en Radar-CGR para facilitar un cruce futuro. Falta acordar un esquema de entity_id verdaderamente compartido (idealmente anclado en RUT normalizado) y un mecanismo de sincronizacion entre repositorios, por ejemplo un dataset comun publicado por cada radar y consumido por los demas.",
+        "title": "Consolidar identificadores RUT para cruces futuros entre radares",
+        "detail": "v0.2 incorpora sujetos obligados como entidades estructuradas por RUT. Esto habilita el futuro cruce con Radar SII, Radar CGR y otros radares sin depender de coincidencias solo por nombre.",
     },
     {
         "id": "onu-list-diffing",
         "area": "Sanciones internacionales",
         "priority": "MEDIA",
-        "title": "Versionar las Listas de Resoluciones ONU para detectar altas y bajas",
-        "detail": "La pagina de Listas de Resoluciones ONU cambia con cada actualizacion del Consejo de Seguridad. Se debe capturar snapshot completo, calcular diff contra la corrida anterior y generar WatchItem por cada persona/entidad agregada o retirada, en vez de solo registrar la pagina como documento.",
-    },
-    {
-        "id": "rut-validation",
-        "area": "Calidad de datos",
-        "priority": "MEDIA",
-        "title": "Validar digito verificador de RUT antes de aceptar una entidad",
-        "detail": "parse_rut() hoy solo reconoce el patron NN.NNN.NNN-D por regex. Se recomienda anadir validacion de digito verificador (modulo 11) para reducir falsos positivos al extraer RUT de texto libre de noticias o resoluciones.",
-    },
-    {
-        "id": "circular-diff-text",
-        "area": "Normativa",
-        "priority": "MEDIA",
-        "title": "Diferenciar contenido normativo, no solo numero y estado",
-        "detail": "Hoy una Circular se registra con numero, fecha y estado (vigente/derogada). Un analisis regulatorio mas util requeriria extraer las 55 actividades economicas obligadas mencionadas y marcar que circular fue derogada por cual, replicando la trazabilidad que la propia Circular N°62 declara sobre las circulares que reemplaza.",
-    },
-    {
-        "id": "robots-and-rate-limit-audit",
-        "area": "Cumplimiento tecnico",
-        "priority": "MEDIA",
-        "title": "Auditar robots.txt y agregar throttling explicito por dominio",
-        "detail": "El HTTPClient reutiliza el patron de reintentos de Radar-CGR pero aun no valida robots.txt de uaf.cl ni de datos.gob.cl antes de la primera corrida real. Conviene automatizar esa verificacion en CI y registrar el resultado en source_runs.",
-    },
-    {
-        "id": "ci-schema-validation",
-        "area": "Ingenieria de datos",
-        "priority": "BAJA",
-        "title": "Validar cada fila contra su JSON Schema en CI",
-        "detail": "Los esquemas en schemas/*.json existen mas como documentacion que como gate ejecutable. Anadir un test que valide una muestra de silver/*.jsonl contra su schema en cada corrida de pytest.",
-    },
-    {
-        "id": "historical-backfill",
-        "area": "Cobertura",
-        "priority": "BAJA",
-        "title": "Backfill historico de Informes de Tipologias anteriores a la decima edicion",
-        "detail": "Solo se referencia la decima edicion (2019-2023). La UAF ha publicado ediciones previas; incorporarlas permitiria una serie temporal comparable de tipologias/senales de alerta ano contra ano, similar al enfoque de barrido historico que Radar-CGR aplica sobre auditorias.",
+        "title": "Versionar Listas de Resoluciones ONU y detectar altas/bajas",
+        "detail": "Capturar snapshot completo y generar diferencias entre corridas por persona o entidad agregada/retirada.",
     },
 ]
 
 QUESTION_CATALOG = [
-    {"id": "sanciones", "label": "Que entidades y montos concentran las sanciones UAF?"},
-    {"id": "normativa", "label": "Que circulares estan vigentes y cuales fueron derogadas?"},
-    {"id": "sujetos_obligados", "label": "Cuantos sujetos obligados hay inscritos y como evoluciona el registro?"},
-    {"id": "tipologias", "label": "Que tipologias y senales de alerta identifica la UAF?"},
-    {"id": "datos_abiertos", "label": "Que series estadisticas publica la UAF en datos.gob.cl?"},
-    {"id": "calidad", "label": "Que tan consistentes y verificados estan los datos del radar?"},
-    {"id": "mejoras", "label": "Que mejoras estan priorizadas para las proximas corridas?"},
+    {"id": "sujetos_obligados", "label": "¿Cuántos sujetos obligados están inscritos en el último corte UAF?"},
+    {"id": "estadisticas", "label": "¿Cómo evolucionan ROS, ROE, entidades reportantes y supervisión?"},
+    {"id": "sanciones", "label": "¿Qué entidades y montos concentran las sanciones UAF?"},
+    {"id": "normativa", "label": "¿Qué circulares están vigentes y cuáles fueron derogadas?"},
+    {"id": "calidad", "label": "¿Qué tan consistentes y actuales están los datos del radar?"},
+    {"id": "mejoras", "label": "¿Qué mejoras están priorizadas para las próximas versiones?"},
 ]
+
+METHOD_RANK = {
+    "UAF_REGISTRY_XLSX": 5,
+    "LIVE_OFFICIAL_UAF_REPORT": 5,
+    "OFFICIAL_UAF_REPORT": 4,
+    "CKAN_API": 3,
+    "LIVE_SCRAPE": 2,
+    "SEED_OSINT_SUMMARY": 1,
+}
+
+
+def _date_key(row: dict) -> str:
+    value = row.get("as_of_date") or row.get("period") or ""
+    if len(value) == 4 and value.isdigit():
+        return f"{value}-12-31"
+    return value
+
+
+def _latest_by_metric(statistics: list[dict]) -> dict[str, dict]:
+    latest: dict[str, dict] = {}
+    for row in statistics:
+        metric = row.get("metric", "")
+        if not metric:
+            continue
+        key = (_date_key(row), METHOD_RANK.get(row.get("capture_method", ""), 0), row.get("retrieved_at", ""))
+        current = latest.get(metric)
+        if current is None:
+            latest[metric] = row
+            continue
+        current_key = (
+            _date_key(current),
+            METHOD_RANK.get(current.get("capture_method", ""), 0),
+            current.get("retrieved_at", ""),
+        )
+        if key > current_key:
+            latest[metric] = row
+    return latest
+
+
+def _series(statistics: list[dict]) -> list[dict]:
+    """Agrupa observaciones por indicador y elimina duplicados de un mismo período/corte,
+    priorizando extracción oficial en vivo > serie oficial curada > metadatos/semillas."""
+    grouped: dict[str, dict[str, dict]] = defaultdict(dict)
+    for row in statistics:
+        metric = row.get("metric", "")
+        if not metric or metric == "dataset_recursos_publicados":
+            continue
+        point = row.get("period") or row.get("as_of_date") or "sin_fecha"
+        current = grouped[metric].get(point)
+        rank = (METHOD_RANK.get(row.get("capture_method", ""), 0), _date_key(row), row.get("retrieved_at", ""))
+        if current is None:
+            grouped[metric][point] = row
+        else:
+            current_rank = (
+                METHOD_RANK.get(current.get("capture_method", ""), 0),
+                _date_key(current),
+                current.get("retrieved_at", ""),
+            )
+            if rank > current_rank:
+                grouped[metric][point] = row
+
+    output = []
+    for metric, points in grouped.items():
+        rows = sorted(points.values(), key=lambda x: _date_key(x))
+        if not rows:
+            continue
+        output.append(
+            {
+                "metric": metric,
+                "category": rows[-1].get("category", ""),
+                "unit": rows[-1].get("unit", ""),
+                "points": [
+                    {
+                        "period": r.get("period") or r.get("as_of_date") or "—",
+                        "as_of_date": r.get("as_of_date", ""),
+                        "value": r.get("value"),
+                        "capture_method": r.get("capture_method", ""),
+                        "source_url": r.get("source_url", ""),
+                    }
+                    for r in rows
+                ],
+            }
+        )
+    return sorted(output, key=lambda x: (x.get("category", ""), x.get("metric", "")))
+
+
+def _value(row: dict | None):
+    return None if not row else row.get("value")
 
 
 def build_dashboard() -> dict:
@@ -112,11 +164,38 @@ def build_dashboard() -> dict:
 
     coverage = summarize_coverage()
     quality = evaluate_consistency()
+    latest = _latest_by_metric(statistics)
+
+    private = latest.get("sujetos_obligados_sector_privado")
+    public = latest.get("entidades_publicas_registradas")
+    annual_total = latest.get("entidades_reportantes_total")
+    private_date = _date_key(private or {})
+    public_date = _date_key(public or {})
+    if private and public and private_date and private_date == public_date:
+        registered_total = float(private.get("value", 0)) + float(public.get("value", 0))
+        registered_total_as_of = private_date
+    else:
+        registered_total = _value(annual_total)
+        registered_total_as_of = _date_key(annual_total or {})
 
     document_type_counts = Counter(d.get("document_type", "UNKNOWN") for d in documents)
     sanction_amounts = [s.get("amount_uf") for s in sanctions if s.get("amount_uf")]
 
     kpis = {
+        "registered_private_latest": _value(private),
+        "registered_private_as_of": private_date,
+        "registered_public_latest": _value(public),
+        "registered_public_as_of": public_date,
+        "registered_total_latest": registered_total,
+        "registered_total_as_of": registered_total_as_of,
+        "ros_latest": _value(latest.get("ros_recibidos")),
+        "ros_latest_as_of": _date_key(latest.get("ros_recibidos") or {}),
+        "roe_latest": _value(latest.get("roe_recibidos")),
+        "roe_latest_as_of": _date_key(latest.get("roe_recibidos") or {}),
+        "supervision_latest": _value(latest.get("acciones_supervision")),
+        "supervision_latest_as_of": _date_key(latest.get("acciones_supervision") or {}),
+        "fines_uf_latest": _value(latest.get("multas_sancionatorias_uf")),
+        "fines_uf_latest_as_of": _date_key(latest.get("multas_sancionatorias_uf") or {}),
         "documents": len(documents),
         "events": len(events),
         "entities": len(entities),
@@ -124,25 +203,32 @@ def build_dashboard() -> dict:
         "sanctions_total_uf_known": round(sum(sanction_amounts), 1) if sanction_amounts else 0,
         "statistics": len(statistics),
         "open_watch_items": sum(1 for w in watch_items if w.get("status") == "OPEN"),
-        "seed_facts_pending_confirmation": sum(1 for d in documents if d.get("status") == "SEED_PENDING_LIVE_CONFIRMATION"),
         "sources_configured": coverage["sources"]["configured"],
         "sources_never_run": len(coverage["sources"]["never_run"]),
         "quality_status": quality["overall_status"],
     }
 
+    trusted_statistics = sorted(
+        statistics,
+        key=lambda x: (_date_key(x), METHOD_RANK.get(x.get("capture_method", ""), 0)),
+        reverse=True,
+    )
+
     payload = {
-        "version": "0.1.0",
+        "version": "0.2.0",
         "generated_at": coverage["generated_at"],
         "disclaimer": DISCLAIMER,
         "kpis": kpis,
-        "documents": sorted(documents, key=lambda x: x.get("document_date", "") or "", reverse=True)[:400],
+        "documents": sorted(documents, key=lambda x: x.get("document_date", "") or "", reverse=True)[:500],
         "documents_by_type": [{"name": k, "count": v} for k, v in document_type_counts.most_common()],
-        "events": sorted(events, key=lambda x: x.get("event_date", "") or "", reverse=True)[:400],
-        "entities": entities[:400],
-        "sanctions": sorted(sanctions, key=lambda x: x.get("resolution_date", "") or "", reverse=True)[:400],
-        "statistics": statistics[:400],
+        "events": sorted(events, key=lambda x: x.get("event_date", "") or "", reverse=True)[:500],
+        "entities": sorted(entities, key=lambda x: (x.get("sector", ""), x.get("name", "")))[:1000],
+        "sanctions": sorted(sanctions, key=lambda x: x.get("resolution_date", "") or "", reverse=True)[:500],
+        "statistics": trusted_statistics[:1000],
+        "statistics_latest": latest,
+        "statistics_series": _series(statistics),
         "watch_items": sorted(watch_items, key=lambda x: (x.get("status") == "OPEN", x.get("last_seen", "") or ""), reverse=True)[:200],
-        "source_runs": sorted(source_runs, key=lambda x: x.get("finished_at", "") or "", reverse=True)[:200],
+        "source_runs": sorted(source_runs, key=lambda x: x.get("finished_at", "") or "", reverse=True)[:300],
         "coverage": coverage,
         "quality": quality,
         "improvement_backlog": IMPROVEMENT_BACKLOG,
