@@ -257,17 +257,17 @@ def parse_statistical_report(report: dict, full_text: str) -> tuple[list[Documen
     patterns = {
         "entidades_reportantes_total": [
             rf"Al 31 de diciembre de {year},\s*([0-9\.]+)\s+personas naturales y jurídicas se encuentran inscritas",
-            rf"Registro de Entidades Reportantes.{0,100}?{year}.{0,100}?([0-9\.]+)\s+personas naturales y jurídicas inscritas",
+            rf"Registro de Entidades Reportantes.*?{year}.*?([0-9\.]+)\s+personas naturales y jurídicas inscritas",
         ],
         "sujetos_obligados_sector_privado": [rf"De estas,\s*([0-9\.]+)\s+pertenecen a las 55 actividades económicas"],
         "entidades_publicas_registradas": [rf"y\s*([0-9\.]+)\s+son entidades públicas"],
         "ros_recibidos": [rf"durante el año {year} la UAF recibió un total de\s*([0-9\.]+)\s+ROS"],
         "roe_recibidos": [rf"Durante el {year}, la UAF recibió\s*([0-9\.]+)\s+ROE"],
         "acciones_supervision": [rf"en {year}, la UAF realizó\s*([0-9\.]+)\s+acciones de supervisión"],
-        "procesos_sancionatorios_finalizados": [rf"durante el {year} la UAF finalizó.{0,100}?([0-9\.]+)\s+procesos sancionatorios"],
-        "multas_sancionatorias_uf": [rf"multas a beneficio fiscal.{0,120}?ascendieron a UF\s*([0-9\.]+)"],
-        "personas_informadas_en_ros": [rf"ROS recibidos en {year}.{0,120}?incluyeron información de\s*([0-9\.]+)\s+personas"],
-        "ros_con_indicios_laft": [rf"información de\s*([0-9\.]+)\s+ROS, cuyos respectivos Informes de Inteligencia"],
+        "procesos_sancionatorios_finalizados": [rf"durante el {year} la UAF finalizó.*?([0-9\.]+)\s+procesos sancionatorios"],
+        "multas_sancionatorias_uf": [r"multas a beneficio fiscal.*?ascendieron a UF\s*([0-9\.]+)"],
+        "personas_informadas_en_ros": [rf"ROS recibidos en {year}.*?incluyeron información de\s*([0-9\.]+)\s+personas"],
+        "ros_con_indicios_laft": [r"información de\s*([0-9\.]+)\s+ROS, cuyos respectivos Informes de Inteligencia"],
     }
     categories = {
         "entidades_reportantes_total": "SUJETOS_OBLIGADOS",
