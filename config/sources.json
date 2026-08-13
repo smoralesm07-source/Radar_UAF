@@ -32,13 +32,33 @@
     },
     {
       "id": "uaf_sujetos_obligados_inscritos",
-      "name": "Inscritos en la UAF (Registro de Entidades Reportantes)",
+      "name": "Inscritos en la UAF - sector privado",
       "url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-privado/inscritos-en-la-uaf",
-      "collector": "registry_snapshot",
+      "collector": "registry_workbook_private",
       "enabled": true,
-      "max_items": 40,
+      "max_items": 15000,
       "priority": 1,
-      "notes": "Publicacion semestral (enero/julio) del Registro de Entidades Reportantes. Referencia publica: 8.970 entidades del sector privado a junio-2025."
+      "notes": "Publicacion semestral del Registro de Entidades Reportantes. La pagina oficial exhibe actualmente el corte 30-06-2026 publicado el 06-08-2026. El colector v0.2 descarga el XLSX vigente y cuenta RUT unicos, evitando usar cifras semilla antiguas."
+    },
+    {
+      "id": "uaf_sector_publico_inscritos",
+      "name": "Inscritos en la UAF - sector publico",
+      "url": "https://www.uaf.cl/es-cl/sujetos-obligados/sector-publico/inscritos-en-la-uaf",
+      "collector": "registry_workbook_public",
+      "enabled": true,
+      "max_items": 1500,
+      "priority": 1,
+      "notes": "Listado semestral de instituciones publicas y municipalidades registradas para reportar. Se modela separado del universo privado obligado por el articulo 3 inciso primero."
+    },
+    {
+      "id": "uaf_informes_estadisticos",
+      "name": "Informes Estadisticos UAF",
+      "url": "https://www.uaf.cl/es-cl/publicaciones-uaf/informes-estadisticos",
+      "collector": "statistics_report_index",
+      "enabled": true,
+      "max_items": 20,
+      "priority": 1,
+      "notes": "Fuente oficial de series sobre entidades reportantes, ROS, ROE, DPTE, inteligencia financiera, supervision, fiscalizacion y procesos sancionatorios. En v0.2 se descubre el ultimo informe publicado y se valida contra la base estructurada del Informe Estadistico 2025."
     },
     {
       "id": "uaf_sujetos_obligados_quienes_reportan",
@@ -48,7 +68,7 @@
       "enabled": true,
       "max_items": 60,
       "priority": 2,
-      "notes": "Detalle de las actividades economicas obligadas segun articulo 3 de la Ley 19.913."
+      "notes": "Detalle de las 55 actividades economicas obligadas segun articulo 3 de la Ley 19.913."
     },
     {
       "id": "uaf_ros",
@@ -78,7 +98,7 @@
       "enabled": true,
       "max_items": 40,
       "priority": 1,
-      "notes": "Listas de sanciones financieras del Consejo de Seguridad de Naciones Unidas replicadas por la UAF. Clave para screening de personas/entidades PEP y financiamiento del terrorismo."
+      "notes": "Listas de sanciones financieras del Consejo de Seguridad de Naciones Unidas replicadas por la UAF."
     },
     {
       "id": "uaf_sector_publico_reportes",
@@ -98,7 +118,7 @@
       "enabled": true,
       "max_items": 400,
       "priority": 1,
-      "notes": "Listado historico de resoluciones sancionatorias ejecutoriadas. El dominio migro a una nueva CMS (es-cl); esta ruta .aspx aun aparece indexada y debe confirmarse en cada corrida si redirige o continua sirviendo el listado."
+      "notes": "Listado historico de resoluciones sancionatorias ejecutoriadas; se mantiene como respaldo mientras se consolida el extractor de la seccion moderna."
     },
     {
       "id": "uaf_sanciones_legacy_lavado",
@@ -108,7 +128,7 @@
       "enabled": true,
       "max_items": 400,
       "priority": 2,
-      "notes": "Ruta legada alternativa para el mismo listado de sanciones; se mantiene como respaldo por si la ruta principal cambia de URL."
+      "notes": "Ruta legada alternativa para el listado de sanciones."
     },
     {
       "id": "uaf_informe_tipologias_legacy",
@@ -118,7 +138,7 @@
       "enabled": true,
       "max_items": 40,
       "priority": 2,
-      "notes": "URL legada (con typo original 'intituciones') que aloja el Informe de Tipologias y Senales de Alerta de LA en Chile."
+      "notes": "Ruta historica de informes de tipologias y senales de alerta de LA."
     },
     {
       "id": "uaf_noticias",
@@ -128,7 +148,7 @@
       "enabled": true,
       "max_items": 60,
       "priority": 1,
-      "notes": "Portada institucional con destacados de noticias; se navega mediante enlaces noticia-detalle?id=NNN."
+      "notes": "Portada institucional con destacados de noticias."
     },
     {
       "id": "uaf_preguntas_frecuentes",
@@ -148,7 +168,7 @@
       "enabled": true,
       "max_items": 40,
       "priority": 3,
-      "notes": "Mecanismo de descubrimiento resiliente a reordenamientos del CMS institucional (patron usado tambien para localizar sanciones y circulares)."
+      "notes": "Mecanismo de descubrimiento resiliente a reordenamientos del CMS institucional."
     },
     {
       "id": "datos_gob_uaf_ckan",
@@ -158,7 +178,7 @@
       "enabled": true,
       "max_items": 100,
       "priority": 1,
-      "notes": "API CKAN estandar de datos.gob.cl. Incluye datasets: sujetos obligados inscritos, ROS enviadas al Ministerio Publico, ROS recibidos por la UAF, penas de comiso por LA y procesos judiciales por LA terminados. Fuente estructurada, preferible a scraping HTML cuando este disponible."
+      "notes": "API CKAN de datos.gob.cl para datasets estructurados de la UAF."
     }
   ]
 }
