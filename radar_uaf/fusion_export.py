@@ -12,11 +12,7 @@ VERSION = "1.0"
 def _read_jsonl(path: Path) -> Iterable[dict[str, Any]]:
     if not path.exists():
         return []
-    rows: list[dict[str, Any]] = []
-    for line in path.read_text(encoding="utf-8").splitlines():
-        if line.strip():
-            rows.append(json.loads(line))
-    return rows
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
 def _write_jsonl(path: Path, rows: Iterable[dict[str, Any]]) -> int:
@@ -37,9 +33,7 @@ def _iso_date(value: object) -> str | None:
     text = str(value or "").strip()
     if not text:
         return None
-    if len(text) == 10:
-        return text + "T00:00:00+00:00"
-    return text
+    return text + "T00:00:00+00:00" if len(text) == 10 else text
 
 
 def build(root: Path) -> dict[str, int]:
@@ -47,17 +41,15 @@ def build(root: Path) -> dict[str, int]:
     documents = list(_read_jsonl(silver / "documents.jsonl"))
     events = list(_read_jsonl(silver / "events.jsonl"))
     hub = list(_read_jsonl(silver / "entity_hub_v1.jsonl"))
+    runs = list(_read_jsonl(silver / "source_runs.jsonl"))
+    latest_run_time = max((str(r.get("finished_at") or "") for r in runs), default="")
 
-    documents_by_id = {str(row.get("document_id") or ""): row for row in documents if row.get("document_id")}
+    documents_by_id = {str(row.get("document_id")): row for row in documents if row.get("document_id")}
     evidence: dict[str, dict[str, Any]] = {}
 
     def evidence_from_document(document: dict[str, Any]) -> str:
         document_id = str(document.get("document_id") or "")
-        seed = document_id or "|".join([
-            str(document.get("source_url") or ""),
-            str(document.get("retrieved_at") or ""),
-            str(document.get("title") or ""),
-        ])
+        seed = document_id or "|".join([str(document.get("source_url") or ""), str(document.get("retrieved_at") or ""), str(document.get("title") or "")])
         eid = _evidence_id(seed)
         evidence[eid] = {
             "evidence_id": eid,
@@ -71,8 +63,8 @@ def build(root: Path) -> dict[str, int]:
             "content_sha256": document.get("content_hash") or None,
             "quality_status": "VALID" if str(document.get("status") or "").upper() not in {"FAILED", "ERROR"} else "FAILED",
             "source_published_at": _iso_date(document.get("document_date")),
-            "retrieved_at": str(document.get("retrieved_at") or ""),
-            "ingested_at": str(document.get("retrieved_at") or ""),
+            "retrieved_at": str(document.get("retrieved_at") or latest_run_time),
+            "ingested_at": str(document.get("retrieved_at") or latest_run_time),
             "excerpt": document.get("raw_text_excerpt") or None,
             "schema_version": VERSION,
         }
@@ -83,12 +75,15 @@ def build(root: Path) -> dict[str, int]:
 
     canonical_events: list[dict[str, Any]] = []
     for row in events:
+        event_id = str(row.get("event_id") or "")
+        if not event_id:
+            continue
         document_id = str(row.get("document_id") or "")
         if document_id and document_id in documents_by_id:
             eid = evidence_from_document(documents_by_id[document_id])
         else:
-            seed = "|".join([str(row.get("event_id") or ""), str(row.get("source_url") or ""), str(row.get("retrieved_at") or "")])
-            eid = _evidence_id(seed)
+            retrieved_at = str(row.get("retrieved_at") or latest_run_time)
+            eid = _evidence_id("|".join([event_id, str(row.get("source_url") or ""), retrieved_at]))
             evidence[eid] = {
                 "evidence_id": eid,
                 "producer_id": RADAR_ID,
@@ -101,12 +96,12 @@ def build(root: Path) -> dict[str, int]:
                 "content_sha256": None,
                 "quality_status": "VALID",
                 "source_published_at": _iso_date(row.get("event_date")),
-                "retrieved_at": str(row.get("retrieved_at") or ""),
-                "ingested_at": str(row.get("retrieved_at") or ""),
+                "retrieved_at": retrieved_at,
+                "ingested_at": retrieved_at,
                 "schema_version": VERSION,
             }
         canonical_events.append({
-            "event_id": str(row.get("event_id") or ""),
+            "event_id": event_id,
             "event_type": str(row.get("event_type") or "UAF_OBSERVATION"),
             "producer_id": RADAR_ID,
             "entity_ids": [],
@@ -117,9 +112,9 @@ def build(root: Path) -> dict[str, int]:
                 "valid_from": _iso_date(row.get("event_date")),
                 "valid_to": None,
                 "source_published_at": _iso_date(row.get("event_date")),
-                "observed_at": str(row.get("retrieved_at") or "") or None,
-                "retrieved_at": str(row.get("retrieved_at") or "") or None,
-                "ingested_at": str(row.get("retrieved_at") or "") or None,
+                "observed_at": str(row.get("retrieved_at") or latest_run_time) or None,
+                "retrieved_at": str(row.get("retrieved_at") or latest_run_time) or None,
+                "ingested_at": str(row.get("retrieved_at") or latest_run_time) or None,
                 "last_seen_at": None,
                 "freshness_state": "CURRENT",
             },
@@ -141,7 +136,9 @@ def build(root: Path) -> dict[str, int]:
         if doc_id and doc_id in documents_by_id:
             eid = evidence_from_document(documents_by_id[doc_id])
         else:
-            eid = _evidence_id("entity|" + entity_id + "|" + str(row.get("source_entity_id") or ""))
+            if not latest_run_time:
+                continue
+            eid = _evidence_id("entity|" + entity_id + "|" + str(row.get("source_entity_id") or "") + "|" + latest_run_time)
             evidence[eid] = {
                 "evidence_id": eid,
                 "producer_id": RADAR_ID,
@@ -154,8 +151,8 @@ def build(root: Path) -> dict[str, int]:
                 "content_sha256": None,
                 "quality_status": "PARTIAL",
                 "source_published_at": None,
-                "retrieved_at": "1970-01-01T00:00:00+00:00",
-                "ingested_at": None,
+                "retrieved_at": latest_run_time,
+                "ingested_at": latest_run_time,
                 "schema_version": VERSION,
             }
         canonical_entities.append({
@@ -175,6 +172,8 @@ def build(root: Path) -> dict[str, int]:
     evidence_count = _write_jsonl(silver / "evidence_v1.jsonl", evidence.values())
     entity_count = _write_jsonl(silver / "entities_fusion_v1.jsonl", canonical_entities)
     event_count = _write_jsonl(silver / "events_fusion_v1.jsonl", canonical_events)
-    status = {"interop_version": VERSION, "radar_id": RADAR_ID, "status": "FUSION_EXPORT_READY", "evidence": evidence_count, "entities": entity_count, "events": event_count}
-    (root / "docs" / "data" / "fusion_interop_status_v1.json").write_text(json.dumps(status, ensure_ascii=False, indent=2), encoding="utf-8")
+    status = {"interop_version": VERSION, "radar_id": RADAR_ID, "status": "FUSION_EXPORT_READY", "evidence": evidence_count, "entities": entity_count, "events": event_count, "source_failure_is_zero": False}
+    status_path = root / "docs" / "data" / "fusion_interop_status_v1.json"
+    status_path.parent.mkdir(parents=True, exist_ok=True)
+    status_path.write_text(json.dumps(status, ensure_ascii=False, indent=2), encoding="utf-8")
     return status
