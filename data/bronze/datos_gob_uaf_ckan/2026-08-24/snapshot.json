@@ -1,9 +1,9 @@
 {
   "source_id": "datos_gob_uaf_ckan",
   "source_url": "https://datos.gob.cl/api/3/action/package_search?fq=organization:unidad_de_analisis_financiero&rows=100",
-  "fetched_at": "2026-08-24T10:07:05+00:00",
+  "fetched_at": "2026-08-24T21:47:22+00:00",
   "status_code": 200,
-  "dataset_count": 10,
+  "dataset_count": 9,
   "datasets": [
     {
       "name": "4318",
@@ -28,17 +28,6 @@
         "xlsx"
       ],
       "url": "https://datos.gob.cl/dataset/4305"
-    },
-    {
-      "name": "4294",
-      "title": "Sujetos Obligados inscritos en la Unidad de Análisis Financiero (UAF)",
-      "notes": "Información de Sujetos Obligados inscritos en la UAF yque se encuentran vigentes.",
-      "metadata_modified": "2015-10-30T13:06:08.335402",
-      "num_resources": 1,
-      "resource_formats": [
-        "csv"
-      ],
-      "url": "https://datos.gob.cl/dataset/4294"
     },
     {
       "name": "15243",
