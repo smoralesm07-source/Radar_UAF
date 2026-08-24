@@ -1,0 +1,11 @@
+{
+  "source_id": "uaf_sanciones_legacy_entidades",
+  "source_url": "https://www.uaf.cl/entidades_reportantes/sanciones.aspx",
+  "status_code": null,
+  "fetched_at": "2026-08-24T10:07:02+00:00",
+  "content_hash": "",
+  "title": "",
+  "text_excerpt": "",
+  "links": [],
+  "error": "HTTPError: 404 Client Error: Not Found for url: https://www.uaf.cl/es-cl/entidades_reportantes/sanciones.aspx"
+}
