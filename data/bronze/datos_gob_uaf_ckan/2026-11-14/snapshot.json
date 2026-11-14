@@ -1,0 +1,45 @@
+{
+  "source_id": "datos_gob_uaf_ckan",
+  "source_url": "https://datos.gob.cl/api/3/action/package_search?fq=organization:unidad_de_analisis_financiero&rows=100",
+  "fetched_at": "2026-11-14T01:29:21+00:00",
+  "status_code": 200,
+  "dataset_count": 3,
+  "datasets": [
+    {
+      "name": "4318",
+      "title": "Penas de comiso por delitos de lavado de activos",
+      "notes": "Detalle de penas de comiso por delitos de lavado de activos.",
+      "metadata_modified": "2015-10-30T13:06:09.522755",
+      "num_resources": 2,
+      "resource_formats": [
+        "csv",
+        "xlsx"
+      ],
+      "url": "https://datos.gob.cl/dataset/4318"
+    },
+    {
+      "name": "4268",
+      "title": "Reportes de Operaciones Sospechosas (ROS) Recibidos por la UAF",
+      "notes": "Información de Reportes de Operaciones Sospechosas(ROS) recibidas por la UAF",
+      "metadata_modified": "2015-10-30T13:06:04.820647",
+      "num_resources": 2,
+      "resource_formats": [
+        "csv",
+        "xlsx"
+      ],
+      "url": "https://datos.gob.cl/dataset/4268"
+    },
+    {
+      "name": "15251",
+      "title": "Reportes de Operaciones Sospechosas (ROS) Recibidos por la UAF",
+      "notes": "Información de Reportes de Operaciones Sospechosas(ROS) recibidas por la UAF",
+      "metadata_modified": "2015-10-30T13:06:04.227009",
+      "num_resources": 2,
+      "resource_formats": [
+        "csv",
+        "xlsx"
+      ],
+      "url": "https://datos.gob.cl/dataset/15251"
+    }
+  ]
+}
