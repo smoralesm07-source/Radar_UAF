@@ -1,9 +1,9 @@
 {
   "source_id": "datos_gob_uaf_ckan",
   "source_url": "https://datos.gob.cl/api/3/action/package_search?fq=organization:unidad_de_analisis_financiero&rows=100",
-  "fetched_at": "2026-11-15T01:06:04+00:00",
+  "fetched_at": "2026-11-15T16:25:57+00:00",
   "status_code": 200,
-  "dataset_count": 3,
+  "dataset_count": 4,
   "datasets": [
     {
       "name": "4318",
@@ -16,6 +16,18 @@
         "xlsx"
       ],
       "url": "https://datos.gob.cl/dataset/4318"
+    },
+    {
+      "name": "4284",
+      "title": "Reportes de Operaciones Sospechosas (ROS) enviadas al Ministerio Público",
+      "notes": "Información de Reportes de Operaciones Sospechosas(ROS) enviados al Ministerio Público",
+      "metadata_modified": "2015-10-30T13:06:05.960823",
+      "num_resources": 2,
+      "resource_formats": [
+        "csv",
+        "xlsx"
+      ],
+      "url": "https://datos.gob.cl/dataset/4284"
     },
     {
       "name": "4268",
