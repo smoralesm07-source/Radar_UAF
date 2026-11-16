@@ -1,0 +1,69 @@
+{
+  "source_id": "datos_gob_uaf_ckan",
+  "source_url": "https://datos.gob.cl/api/3/action/package_search?fq=organization:unidad_de_analisis_financiero&rows=100",
+  "fetched_at": "2026-11-16T01:06:37+00:00",
+  "status_code": 200,
+  "dataset_count": 5,
+  "datasets": [
+    {
+      "name": "4318",
+      "title": "Penas de comiso por delitos de lavado de activos",
+      "notes": "Detalle de penas de comiso por delitos de lavado de activos.",
+      "metadata_modified": "2015-10-30T13:06:09.522755",
+      "num_resources": 2,
+      "resource_formats": [
+        "csv",
+        "xlsx"
+      ],
+      "url": "https://datos.gob.cl/dataset/4318"
+    },
+    {
+      "name": "15245",
+      "title": "Sujetos Obligados inscritos en la Unidad de Análisis Financiero (UAF)",
+      "notes": "Información de Sujetos Obligados inscritos en la UAF yque se encuentran vigentes.",
+      "metadata_modified": "2015-10-30T13:06:06.554917",
+      "num_resources": 2,
+      "resource_formats": [
+        "csv",
+        "xlsx"
+      ],
+      "url": "https://datos.gob.cl/dataset/15245"
+    },
+    {
+      "name": "4284",
+      "title": "Reportes de Operaciones Sospechosas (ROS) enviadas al Ministerio Público",
+      "notes": "Información de Reportes de Operaciones Sospechosas(ROS) enviados al Ministerio Público",
+      "metadata_modified": "2015-10-30T13:06:05.960823",
+      "num_resources": 2,
+      "resource_formats": [
+        "csv",
+        "xlsx"
+      ],
+      "url": "https://datos.gob.cl/dataset/4284"
+    },
+    {
+      "name": "15248",
+      "title": "Reportes de Operaciones Sospechosas (ROS) enviadas al Ministerio Público",
+      "notes": "Información de Reportes de Operaciones Sospechosas(ROS) enviados al Ministerio Público",
+      "metadata_modified": "2015-10-30T13:06:05.406339",
+      "num_resources": 2,
+      "resource_formats": [
+        "csv",
+        "xlsx"
+      ],
+      "url": "https://datos.gob.cl/dataset/15248"
+    },
+    {
+      "name": "15251",
+      "title": "Reportes de Operaciones Sospechosas (ROS) Recibidos por la UAF",
+      "notes": "Información de Reportes de Operaciones Sospechosas(ROS) recibidas por la UAF",
+      "metadata_modified": "2015-10-30T13:06:04.227009",
+      "num_resources": 2,
+      "resource_formats": [
+        "csv",
+        "xlsx"
+      ],
+      "url": "https://datos.gob.cl/dataset/15251"
+    }
+  ]
+}
